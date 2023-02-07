@@ -29,8 +29,33 @@ class Home extends BaseController
             'no_bkad' => $this->request->getPost('no_bkad'),
             'tgl' => $this->request->getPost('tgl'),
             'tempat' => $this->request->getPost('tempat'),
+            'disposisi' => $this->request->getPost('disposisi'),
+            'catatan' => $this->request->getPost('catatan'),
         ]);
 
         return redirect('agenda')->with('success', 'Data Added Successfully');
+    }
+
+    public function edit($id)
+    {
+
+        $this->agenda->update($id, [
+            'nama_agenda' => $this->request->getPost('nama_agenda'),
+            'asal_surat' => $this->request->getPost('asal_surat'),
+            'no_surat' => $this->request->getPost('no_surat'),
+            'no_bkad' => $this->request->getPost('no_bkad'),
+            'tgl' => $this->request->getPost('tgl'),
+            'tempat' => $this->request->getPost('tempat'),
+            'disposisi' => $this->request->getPost('disposisi'),
+            'catatan' => $this->request->getPost('catatan'),
+        ]);
+
+        return redirect('agenda')->with('success', 'Data Updated Successfully');
+    }
+
+    public function delete($id)
+    {
+        $this->agenda->delete($id);
+        return redirect('agenda')->with('success', 'Data Deleted Successfully');
     }
 }

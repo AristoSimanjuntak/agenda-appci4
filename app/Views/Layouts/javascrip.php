@@ -25,6 +25,7 @@
 
 <!-- Custom js -->
 <script src="http://localhost/LTR/public/assets/js/custom.js"></script>
+
 <!-- Internal Chart.Bundle js-->
 <script src="http://localhost/LTR/public/assets/plugins/chart.js/Chart.bundle.min.js"></script>
 
@@ -48,3 +49,27 @@
 
 <!-- Modal js-->
 <script src="http://localhost/public/assets/js/modal.js"></script>
+
+<!-- Internal Jquery-Ui js-->
+<script src="http://localhost/LTR/public/assets/plugins/jquery-ui/ui/widgets/datepicker.js"></script>
+
+<!-- Internal Jquery.maskedinput js-->
+<script src="http://localhost/LTR/public/assets/plugins/jquery.maskedinput/jquery.maskedinput.js"></script>
+
+<!-- Internal Specturm-colorpicker js-->
+<script src="http://localhost/LTR/public/assets/plugins/spectrum-colorpicker/spectrum.js"></script>
+
+<!-- Internal Ion-rangeslider js-->
+<script src="http://localhost/LTR/public/assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+
+<!-- Select2 js-->
+<script src="http://localhost/LTR/public/assets/js/select2.js"></script>
+
+<!--Bootstrap-datepicker js-->
+<script src="http://localhost/LTR/public/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+<!-- Internal jquery-simple-datetimepicker js -->
+<script src="http://localhost/LTR/public/assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js"></script>
+
+<!-- Internal Form-elements js-->
+<script src="http://localhost/LTR/public/assets/js/form-elements.js"></script>

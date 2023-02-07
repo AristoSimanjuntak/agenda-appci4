@@ -34,6 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('agenda', 'Home::index');
 $routes->add('agenda', 'Home::create');
+$routes->add('agenda/edit/(:segment)', 'Home::edit/$1');
+$routes->get('agenda/delete/(:segment)', 'Home::delete/$1');
 
 /*
  * --------------------------------------------------------------------

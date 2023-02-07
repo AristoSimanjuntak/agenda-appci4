@@ -10,7 +10,18 @@
                     <a href="/Agenda" class="btn btn-primary"> <i class="bi bi-plus"></i> Tambah Agenda</a>
                 </div>
             </div>-->
-
+            <?php
+            if (session()->getFlashData('success')) {
+            ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashData('success') ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php
+            }
+            ?>
             <div>
                 <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">Tambah Agenda</a>
             </div>
@@ -22,25 +33,190 @@
                         <tr>
                             <th class="wd-lg-10p">No</th>
                             <th class="wd-lg-20p">Agenda Rapat</th>
+                            <th class="wd-lg-20p">asal Surat</th>
                             <th class="wd-lg-20p">No Surat BPKAD</th>
                             <th class="wd-lg-20p">Tempat</th>
                             <th class="wd-lg-20p">Tanggal & Waktu</th>
                             <th class="wd-lg-20p">Disposisi</th>
                             <th class="wd-lg-20p">Catatan</th>
                             <th class="wd-lg-20p">Notulensi</th>
+                            <th class="wd-lg-20p">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="wd-lg-10p">1</td>
-                            <td class="wd-lg-10p">2</td>
-                            <td class="wd-lg-10p">3</td>
-                            <td class="wd-lg-10p">4</td>
-                            <td class="wd-lg-10p">5</td>
-                            <td class="wd-lg-10p">6</td>
-                            <td class="wd-lg-10p">7</td>
-                            <td class="wd-lg-10p">8</td>
-                        </tr>
+                        <?php foreach ($home as $id => $agenda) : ?>
+                            <tr>
+                                <td class="wd-lg-10p"> <?= ++$id ?> </td>
+                                <td class="wd-lg-10p"><?= $agenda['nama_agenda'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['asal_surat'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['no_surat'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['no_bkad'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['tgl'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['tempat'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['disposisi'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['catatan'] ?></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
+                                        Edit
+                                    </button>
+                                    <a href="<?= base_url('agenda/delete/' . $agenda['id']) ?>" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</a>
+                                </td>
+                            </tr>
+                            <div class="modal" id="editModal">
+                                <div class="modal-dialog modal-xl" role="document">
+                                    <div class="modal-content modal-content-demo">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title">Edit Agenda</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row row-sm">
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="card custom-card">
+                                                        <div class="card-body">
+                                                            <form action="<?= base_url('agenda/edit/' . $agenda['id']) ?>" method="post">
+                                                                <?= csrf_field(); ?>
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-12 col-lg-12 col-xl-12">
+                                                                        <div class="">
+                                                                            <div class="form-group">
+                                                                                <label class="">Nama Agenda Rapat</label>
+                                                                                <input class="form-control" required="" placeholder="Isi Nama Agenda Rapat" type="text" id="nama_agenda" name="nama_agenda" value="<?= $agenda['nama_agenda'] ?>">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="">Asal Surat</label>
+                                                                                <div class="pos-relative">
+                                                                                    <input class="form-control pd-r-80" required="" placeholder="Isi Asal Surat" type="text" id="asal_surat" name="asal_surat" value="<?= $agenda['asal_surat'] ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="">Nomor Surat</label>
+                                                                                <div class="pos-relative">
+                                                                                    <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat" type="text" id="no_surat" name="no_surat" value="<?= $agenda['no_surat'] ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="">Nomor Surat BKAD</label>
+                                                                                <div class="pos-relative">
+                                                                                    <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat BKAD" type="number" id="no_bkad" name="no_bkad" value="<?= $agenda['no_bkad'] ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row row-sm">
+                                                                                <div class="col-lg-6">
+                                                                                    <div class="mg-b-20">
+                                                                                        <label class="">Tanggal</label>
+                                                                                        <div class="input-group">
+                                                                                            <div class="input-group-prepend">
+                                                                                                <div class="input-group-text">
+                                                                                                    <i class="fe fe-calendar lh--9 op-6"></i>
+                                                                                                </div>
+                                                                                            </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="date" id="tgl" name="tgl" value="<?= $agenda['tgl'] ?>">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6">
+                                                                                    <div class="mg-b-20">
+                                                                                        <label class="">Tempat</label>
+                                                                                        <div class="form-group">
+                                                                                            <div class="pos-relative">
+                                                                                                <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat" value="<?= $agenda['tempat'] ?>">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row row-sm">
+                                                                                <div class="col-lg-3">
+                                                                                    <div class="mg-b-20">
+                                                                                        <label class="">Disposisi</label>
+                                                                                        <div class="d-sm-flex">
+                                                                                            <div class="parsley-select wd-sm-250" id="slWrapper">
+                                                                                                <select class="form-control select2" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" data-placeholder="Pilih Disposisi" required="" id="disposisi" name="disposisi" value="<?= $agenda['disposisi'] ?>">
+                                                                                                    <option label="Choose one">
+                                                                                                    </option>
+                                                                                                    <option value="Sekertaris">
+                                                                                                        Sekertaris
+                                                                                                    </option>
+                                                                                                    <option value="Kabid Anggaran">
+                                                                                                        Kabid Anggaran
+                                                                                                    </option>
+                                                                                                    <option value="Kabid Pembedaharaan">
+                                                                                                        Kabid Pembedaharaan
+                                                                                                    </option>
+                                                                                                    <option value="Kabid Aset dan Investasi">
+                                                                                                        Kabid Aset dan Investasi
+                                                                                                    </option>
+                                                                                                    <option value="Kabid Akuntansi">
+                                                                                                        Kabid Akuntansi
+                                                                                                    </option>
+                                                                                                </select>
+                                                                                                <div id="slErrorContainer"></div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+
+                                                                            </div>
+
+                                                                            <div class="row row-sm mg-t-20">
+                                                                                <div class="col-lg">
+                                                                                    <label class="">Catatan</label>
+                                                                                    <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan" value="<?= $agenda['tempat'] ?>"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="form-group mg-b-20">
+                                                                                <label class="ckbox">
+                                                                                    <input checked type="checkbox"><span class="tx-13">I agree terms and conditions</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <button class="btn ripple btn-main-primary btn-block" type="submit">Submit</button>
+                                                                            <button class="btn ripple btn-secondary btn-block" data-dismiss="modal" type="button">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </div>
@@ -60,64 +236,65 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="card custom-card">
                             <div class="card-body">
-                                <div class="row row-sm">
-                                    <div class="col-md-12 col-lg-12 col-xl-12">
-                                        <div class="">
-                                            <div class="form-group">
-                                                <label class="">Nama Agenda Rapat</label>
-                                                <input class="form-control" required="" placeholder="Isi Nama Agenda Rapat" type="text">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="">Asal Surat</label>
-                                                <div class="pos-relative">
-                                                    <input class="form-control pd-r-80" required="" placeholder="Isi Asal Surat" type="text">
+                                <form action="/agenda" method="post">
+                                    <?= csrf_field(); ?>
+                                    <div class="row row-sm">
+                                        <div class="col-md-12 col-lg-12 col-xl-12">
+                                            <div class="">
+                                                <div class="form-group">
+                                                    <label class="">Nama Agenda Rapat</label>
+                                                    <input class="form-control" required="" placeholder="Isi Nama Agenda Rapat" type="text" id="nama_agenda" name="nama_agenda">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="">Nomor Surat</label>
-                                                <div class="pos-relative">
-                                                    <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="">Nomor Surat BKAD</label>
-                                                <div class="pos-relative">
-                                                    <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat BKAD" type="int">
-                                                </div>
-                                            </div>
-                                            <div class="row row-sm">
-                                                <div class="col-lg-6">
-                                                    <div class="mg-b-20">
-                                                        <label class="">Tanggal</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text">
-                                                                    <i class="fe fe-calendar lh--9 op-6"></i>
-                                                                </div>
-                                                            </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="text">
-                                                        </div>
+                                                <div class="form-group">
+                                                    <label class="">Asal Surat</label>
+                                                    <div class="pos-relative">
+                                                        <input class="form-control pd-r-80" required="" placeholder="Isi Asal Surat" type="text" id="asal_surat" name="asal_surat">
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <div class="mg-b-20">
-                                                        <label class="">Tempat</label>
-                                                        <div class="form-group">
-                                                            <div class="pos-relative">
-                                                                <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text">
+                                                <div class="form-group">
+                                                    <label class="">Nomor Surat</label>
+                                                    <div class="pos-relative">
+                                                        <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat" type="text" id="no_surat" name="no_surat">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="">Nomor Surat BKAD</label>
+                                                    <div class="pos-relative">
+                                                        <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat BKAD" type="number" id="no_bkad" name="no_bkad">
+                                                    </div>
+                                                </div>
+                                                <div class="row row-sm">
+                                                    <div class="col-lg-6">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Tanggal</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fe fe-calendar lh--9 op-6"></i>
+                                                                    </div>
+                                                                </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="date" id="tgl" name="tgl">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Tempat</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="row row-sm">
-                                                <div class="col-lg-3">
-                                                    <div class="mg-b-20">
-                                                        <label class="">Disposisi</label>
-                                                        <form action="<?php echo base_url('Agenda/indexView'); ?>" id="selectForm" name="selectForm">
+                                                <div class="row row-sm">
+                                                    <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
                                                             <div class="d-sm-flex">
                                                                 <div class="parsley-select wd-sm-250" id="slWrapper">
-                                                                    <select class="form-control select2" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" data-placeholder="Pilih Disposisi" required="">
+                                                                    <select class="form-control select2" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" data-placeholder="Pilih Disposisi" required="" id="disposisi" name="disposisi">
                                                                         <option label="Choose one">
                                                                         </option>
                                                                         <option value="Sekertaris">
@@ -139,67 +316,222 @@
                                                                     <div id="slErrorContainer"></div>
                                                                 </div>
                                                             </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <div class="mg-b-20">
-                                                        <label class="">Disposisi</label>
-                                                        <div class="form-group">
-                                                            <div class="pos-relative">
-                                                                <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <div class="mg-b-20">
-                                                        <label class="">Disposisi</label>
-                                                        <div class="form-group">
-                                                            <div class="pos-relative">
-                                                                <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <div class="mg-b-20">
-                                                        <label class="">Disposisi</label>
-                                                        <div class="form-group">
-                                                            <div class="pos-relative">
-                                                                <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
 
-                                            <div class="row row-sm mg-t-20">
-                                                <div class="col-lg">
-                                                    <label class="">Catatan</label>
-                                                    <textarea class="form-control" placeholder="Isi Catatan" rows="3"></textarea>
                                                 </div>
+
+                                                <div class="row row-sm mg-t-20">
+                                                    <div class="col-lg">
+                                                        <label class="">Catatan</label>
+                                                        <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan"></textarea>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group mg-b-20">
+                                                    <label class="ckbox">
+                                                        <input checked type="checkbox"><span class="tx-13">I agree terms and conditions</span>
+                                                    </label>
+                                                </div>
+                                                <button class="btn ripple btn-main-primary btn-block" type="submit">Submit</button>
+                                                <button class="btn ripple btn-secondary btn-block" data-dismiss="modal" type="button">Close</button>
                                             </div>
-                                            <br>
-                                            <div class="form-group mg-b-20">
-                                                <label class="ckbox">
-                                                    <input checked type="checkbox"><span class="tx-13">I agree terms and conditions</span>
-                                                </label>
-                                            </div>
-                                            <button class="btn ripple btn-main-primary btn-block">Submit</button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn ripple btn-primary" type="button">Save changes</button>
-                    <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Form Edit -->
+<div class="modal" id="editModal">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content modal-content-demo">
+            <div class="modal-header">
+                <h6 class="modal-title">Edit Agenda</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row row-sm">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card custom-card">
+                            <div class="card-body">
+                                <form action="<?= base_url('agenda/edit/' . $agenda['id']) ?>" method="post">
+                                    <?= csrf_field(); ?>
+                                    <div class="row row-sm">
+                                        <div class="col-md-12 col-lg-12 col-xl-12">
+                                            <div class="">
+                                                <div class="form-group">
+                                                    <label class="">Nama Agenda Rapat</label>
+                                                    <input class="form-control" required="" placeholder="Isi Nama Agenda Rapat" type="text" id="nama_agenda" name="nama_agenda" value="<?= $agenda['nama_agenda'] ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="">Asal Surat</label>
+                                                    <div class="pos-relative">
+                                                        <input class="form-control pd-r-80" required="" placeholder="Isi Asal Surat" type="text" id="asal_surat" name="asal_surat" value="<?= $agenda['asal_surat'] ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="">Nomor Surat</label>
+                                                    <div class="pos-relative">
+                                                        <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat" type="text" id="no_surat" name="no_surat" value="<?= $agenda['no_surat'] ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="">Nomor Surat BKAD</label>
+                                                    <div class="pos-relative">
+                                                        <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat BKAD" type="number" id="no_bkad" name="no_bkad" value="<?= $agenda['no_bkad'] ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="row row-sm">
+                                                    <div class="col-lg-6">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Tanggal</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fe fe-calendar lh--9 op-6"></i>
+                                                                    </div>
+                                                                </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="date" id="tgl" name="tgl" value="<?= $agenda['tgl'] ?>">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Tempat</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat" value="<?= $agenda['tempat'] ?>">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row row-sm">
+                                                    <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="d-sm-flex">
+                                                                <div class="parsley-select wd-sm-250" id="slWrapper">
+                                                                    <select class="form-control select2" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" data-placeholder="Pilih Disposisi" required="" id="disposisi" name="disposisi" value="<?= $agenda['disposisi'] ?>">
+                                                                        <option label="Choose one">
+                                                                        </option>
+                                                                        <option value="Sekertaris">
+                                                                            Sekertaris
+                                                                        </option>
+                                                                        <option value="Kabid Anggaran">
+                                                                            Kabid Anggaran
+                                                                        </option>
+                                                                        <option value="Kabid Pembedaharaan">
+                                                                            Kabid Pembedaharaan
+                                                                        </option>
+                                                                        <option value="Kabid Aset dan Investasi">
+                                                                            Kabid Aset dan Investasi
+                                                                        </option>
+                                                                        <option value="Kabid Akuntansi">
+                                                                            Kabid Akuntansi
+                                                                        </option>
+                                                                    </select>
+                                                                    <div id="slErrorContainer"></div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Disposisi</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+
+                                                </div>
+
+                                                <div class="row row-sm mg-t-20">
+                                                    <div class="col-lg">
+                                                        <label class="">Catatan</label>
+                                                        <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan" value="<?= $agenda['tempat'] ?>"></textarea>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group mg-b-20">
+                                                    <label class="ckbox">
+                                                        <input checked type="checkbox"><span class="tx-13">I agree terms and conditions</span>
+                                                    </label>
+                                                </div>
+                                                <button class="btn ripple btn-main-primary btn-block" type="submit">Submit</button>
+                                                <button class="btn ripple btn-secondary btn-block" data-dismiss="modal" type="button">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Large Modal -->
+</div>
+
+</div>

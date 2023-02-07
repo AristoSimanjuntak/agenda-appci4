@@ -19,11 +19,11 @@
         <!-- 2 -->
         <div class="main-header-right">
 
-            <div class="input-group">
+            <!-- <div class="input-group">
                 <input class="form-control" placeholder="Search for..." type="text">
                 <span class="input-group-btn"><button class="btn ripple btn-primary" type="button">
                         <span class="input-group-btn"><i class="fa fa-search"></i></span></button></span>
-            </div>
+            </div> -->
 
             <div class="dropdown main-profile-menu">
                 <a class="d-flex" href="">
