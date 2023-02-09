@@ -31,11 +31,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index', ['filter' => 'authYet']);
-
+$routes->get('/', 'Home::index', ['filter' => 'authYet']); 
 $routes->get('/auth', 'Auth::index', ['filter' => 'authYet']);
 $routes->post('/auth', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
+
 
 $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('agenda', 'Agenda::index');

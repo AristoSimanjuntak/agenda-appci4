@@ -192,7 +192,7 @@
                                                 </div>
                                                 <div class="card-item-body">
                                                     <div class="card-item-stat">
-                                                        <h4 class="font-weight-bold">1</h4>
+                                                        <h4 class="font-weight-bold"><?= $dataAllAgenda; ?></h4>
                                                         <!-- <small><b class="text-success">55%</b> higher</small> -->
                                                     </div>
                                                 </div>
@@ -221,7 +221,7 @@
                                                 </div>
                                                 <div class="card-item-body">
                                                     <div class="card-item-stat">
-                                                        <h4 class="font-weight-bold">15</h4>
+                                                        <h4 class="font-weight-bold"><?= $dataAllAgenda; ?></h4>
 
                                                     </div>
                                                 </div>

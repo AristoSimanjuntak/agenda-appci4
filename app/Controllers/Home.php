@@ -16,6 +16,7 @@ class Home extends BaseController
     public function index()
     {
         $data['home'] = $this->agenda->findAll();
+        $data['dataAllAgenda'] = $this->agenda->get()->resultID->num_rows;
         $data['session'] = session();
         $data['title'] = 'Agenda Kerja';
         return view('Home/indexView', $data);

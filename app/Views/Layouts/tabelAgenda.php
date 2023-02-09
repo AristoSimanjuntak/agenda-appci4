@@ -44,9 +44,11 @@
                             <th class="wd-lg-10p">No</th>
                             <th class="wd-lg-20p">Agenda Rapat</th>
                             <th class="wd-lg-20p">asal Surat</th>
+                            <th class="wd-lg-20p">No Surat</th>
                             <th class="wd-lg-20p">No Surat BPKAD</th>
                             <th class="wd-lg-20p">Tempat</th>
-                            <th class="wd-lg-20p">Tanggal & Waktu</th>
+                            <th class="wd-lg-20p">Tanggal</th>
+                            <th class="wd-lg-20p">Waktu</th>
                             <th class="wd-lg-20p">Disposisi</th>
                             <th class="wd-lg-20p">Catatan</th>
                             <th class="wd-lg-20p">Notulensi</th>
@@ -70,8 +72,9 @@
                                 <td class="wd-lg-10p"><?= $agenda['asal_surat'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['no_surat'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['no_bkad'] ?></td>
-                                <td class="wd-lg-10p"><?= $agenda['tgl'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['tempat'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['tgl'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['waktu'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['disposisi'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['catatan'] ?></td>
 
@@ -89,7 +92,7 @@
                                 <?php    }
                                 ?>
                             </tr>
-                            
+
                             <div class="modal" id="editModal">
                                 <div class="modal-dialog modal-xl" role="document">
                                     <div class="modal-content modal-content-demo">
@@ -129,6 +132,16 @@
                                                                                     <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat BKAD" type="number" id="no_bkad" name="no_bkad" value="<?= $agenda['no_bkad'] ?>">
                                                                                 </div>
                                                                             </div>
+                                                                            <div class="col-lg-6">
+                                                                                <div class="mg-b-20">
+                                                                                    <label class="">Tempat</label>
+                                                                                    <div class="form-group">
+                                                                                        <div class="pos-relative">
+                                                                                            <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat" value="<?= $agenda['tempat'] ?>">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                             <div class="row row-sm">
                                                                                 <div class="col-lg-6">
                                                                                     <div class="mg-b-20">
@@ -138,20 +151,17 @@
                                                                                                 <div class="input-group-text">
                                                                                                     <i class="fe fe-calendar lh--9 op-6"></i>
                                                                                                 </div>
-                                                                                            </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="date" id="tgl" name="tgl" value="<?= $agenda['tgl'] ?>">
+                                                                                            </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="datetime-local" id="tgl" name="tgl" value="<?= $agenda['tgl'] ?>">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="col-lg-6">
-                                                                                    <div class="mg-b-20">
-                                                                                        <label class="">Tempat</label>
-                                                                                        <div class="form-group">
-                                                                                            <div class="pos-relative">
-                                                                                                <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat" value="<?= $agenda['tempat'] ?>">
-                                                                                            </div>
-                                                                                        </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="">Waktu</label>
+                                                                                    <div class="pos-relative">
+                                                                                        <input class="form-control pd-r-80" required="" placeholder="" type="time" id="waktu" name="waktu" value="<?= $agenda['waktu'] ?>">
                                                                                     </div>
                                                                                 </div>
+
                                                                             </div>
 
                                                                             <div class="row row-sm">
@@ -186,42 +196,42 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <!-- <div class="col-lg-3">
-                                                        <div class="mg-b-20">
-                                                            <label class="">Disposisi</label>
-                                                            <div class="form-group">
-                                                                <div class="pos-relative">
-                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mg-b-20">
-                                                            <label class="">Disposisi</label>
-                                                            <div class="form-group">
-                                                                <div class="pos-relative">
-                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mg-b-20">
-                                                            <label class="">Disposisi</label>
-                                                            <div class="form-group">
-                                                                <div class="pos-relative">
-                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
+                                                                                        <div class="mg-b-20">
+                                                                                            <label class="">Disposisi</label>
+                                                                                            <div class="form-group">
+                                                                                                <div class="pos-relative">
+                                                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-3">
+                                                                                        <div class="mg-b-20">
+                                                                                            <label class="">Disposisi</label>
+                                                                                            <div class="form-group">
+                                                                                                <div class="pos-relative">
+                                                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-3">
+                                                                                        <div class="mg-b-20">
+                                                                                            <label class="">Disposisi</label>
+                                                                                            <div class="form-group">
+                                                                                                <div class="pos-relative">
+                                                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div> -->
 
                                                                             </div>
 
                                                                             <div class="row row-sm mg-t-20">
                                                                                 <div class="col-lg">
                                                                                     <label class="">Catatan</label>
-                                                                                    <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan" value="<?= $agenda['catatan'] ?>"></textarea>
+                                                                                    <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan" <?= $agenda['catatan'] ?>></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <br>
@@ -294,6 +304,14 @@
                                                         <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat BKAD" type="number" id="no_bkad" name="no_bkad">
                                                     </div>
                                                 </div>
+                                                <div class="mg-b-20">
+                                                    <label class="">Tempat</label>
+                                                    <div class="form-group">
+                                                        <div class="pos-relative">
+                                                            <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="row row-sm">
                                                     <div class="col-lg-6">
                                                         <div class="mg-b-20">
@@ -309,13 +327,18 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mg-b-20">
-                                                            <label class="">Tempat</label>
-                                                            <div class="form-group">
-                                                                <div class="pos-relative">
-                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat">
-                                                                </div>
+                                                            <label class="">waktu</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fe fe-calendar lh--9 op-6"></i>
+                                                                    </div>
+                                                                </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="time" id="waktu" name="waktu">
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+
                                                     </div>
                                                 </div>
 

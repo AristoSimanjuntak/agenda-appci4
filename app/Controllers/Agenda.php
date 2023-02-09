@@ -13,13 +13,26 @@ class Agenda extends BaseController
         $this->agenda = new AgendaModel();
     }
 
+    public function makarena()
+    {
+        var_dump($this->agenda->dateSame());
+    }
+
     public function index()
     {
+        $dataAllAgenda = $this->agenda->get()->resultID->num_rows;
+        // dd($dataAllAgenda);
+        $data = [
+            'title' => 'Agenda',
+            'dataAllAgenda' => $dataAllAgenda
+        ];
         $data['home'] = $this->agenda->findAll();
         $data['session'] = session();
         $data['title'] = 'Agenda Kerja';
         return view('Home/indexView', $data);
     }
+
+
 
     public function create()
     {
