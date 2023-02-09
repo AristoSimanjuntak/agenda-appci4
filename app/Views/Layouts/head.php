@@ -16,9 +16,9 @@
     <link href="http://localhost/appci4/public/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Icons css-->
-    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/icons.css" rel="stylesheet" />
-    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet" />
-    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/plugin.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/icons.css" rel="stylesheet" type='text/css' />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet" type='text/css' />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/plugin.css" rel="stylesheet" type='text/css' />
 
     <!-- Style css-->
     <link href="http://localhost/appci4/public/assets/css/style.css" rel="stylesheet" />
