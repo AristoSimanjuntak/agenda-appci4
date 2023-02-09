@@ -7,7 +7,7 @@
 
     <!-- Loader -->
     <div id="global-loader">
-        <img src="http://localhost/LTR/public/assets/img/loader.svg" class="loader-img" alt="Loader">
+        <img src="http://localhost/appci4/public/assets/img/loader.svg" class="loader-img" alt="Loader">
     </div>
     <!-- End Loader -->
 
@@ -124,20 +124,6 @@
                                     <h6 class="main-notification-title">Sonia Taylor</h6>
                                     <p class="main-notification-text">Web Designer</p>
                                 </div>
-                                <a class="dropdown-item border-top" href="http://localhost/LTR/pages/profile">
-                                    <i class="fe fe-user"></i> My Profile
-                                </a>
-                                <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
-                                    <i class="fe fe-edit"></i> Edit Profile
-                                </a>
-                                <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
-                                    <i class="fe fe-settings"></i> Account Settings
-                                </a>
-                                <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
-                                    <i class="fe fe-settings"></i> Support
-                                </a>
-                                <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
-                                    <i class="fe fe-compass"></i> Activity
                                 </a>
                                 <a class="dropdown-item" href="http://localhost/LTR/pages/signin">
                                     <i class="fe fe-power"></i> Sign Out
@@ -166,7 +152,7 @@
                             <h2 class="main-content-title tx-24 mg-b-5">Badan Pengelola Keuangan Daerah Pemerintah Kota Medan </h2>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Project Dashboard</li>
+                                <li class="breadcrumb-item active" aria-current="page">Agenda</li>
                             </ol>
                         </div>
                     </div>

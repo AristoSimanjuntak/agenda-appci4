@@ -31,11 +31,20 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('agenda', 'Home::index');
-$routes->add('agenda', 'Home::create');
-$routes->add('agenda/edit/(:segment)', 'Home::edit/$1');
-$routes->get('agenda/delete/(:segment)', 'Home::delete/$1');
+$routes->get('/', 'Home::index', ['filter' => 'authYet']);
+
+$routes->get('/auth', 'Auth::index', ['filter' => 'authYet']);
+$routes->post('/auth', 'Auth::login');
+$routes->get('/logout', 'Auth::logout');
+
+$routes->group('admin', ['filter' => 'auth'], function ($routes) {
+    $routes->get('agenda', 'Agenda::index');
+    $routes->post('agenda', 'Agenda::create');
+    $routes->put('agenda/(:segment)', 'Agenda::edit/$1');
+    $routes->delete('agenda/(:segment)', 'Agenda::delete/$1');
+});
+
+
 
 /*
  * --------------------------------------------------------------------

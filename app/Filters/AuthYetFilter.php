@@ -6,14 +6,14 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class AuthFilter implements FilterInterface
+class AuthYetFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
         $session = session();
 
-        if (!$session->has('logged_in')){
-            return redirect('auth');
+        if ($session->has('logged_in')) {
+            return redirect('admin/agenda');
         }
     }
 

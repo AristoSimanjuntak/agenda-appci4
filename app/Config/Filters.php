@@ -22,6 +22,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'auth'          => \App\Filters\AuthFilter::class,
+        'authYet'       => \App\Filters\AuthYetFilter::class,
     ];
 
     /**
@@ -32,7 +33,7 @@ class Filters extends BaseConfig
         'before' => [
             'auth' =>
             [
-                'except' => ['auth', 'auth/*']
+                'except' => []
             ],
             // 'csrf',
             // 'invalidchars',

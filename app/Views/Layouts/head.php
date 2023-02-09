@@ -13,29 +13,29 @@
     <title><?= $title ?? 'Dashboard' ?></title>
 
     <!-- Bootstrap css-->
-    <link href="http://localhost/LTR/public/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Icons css-->
-    <link href="http://localhost/LTR/public/assets/plugins/web-fonts/icons.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/plugins/web-fonts/plugin.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/icons.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/plugin.css" rel="stylesheet" />
 
     <!-- Style css-->
-    <link href="http://localhost/LTR/public/assets/css/style.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/css/skins.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/css/dark-style.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/css/colors/default.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/style.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/skins.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/dark-style.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/colors/default.css" rel="stylesheet" />
 
     <!-- Color css-->
-    <link id="theme" rel="stylesheet" type="text/css" media="all" href="http://localhost/LTR/public/assets/css/colors/color.css" />
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="http://localhost/appci4/public/assets/css/colors/color.css" />
 
     <!-- Select2 css-->
-    <link href="http://localhost/LTR/public/assets/plugins/select2/css/select2.min.css" rel="stylesheet">
+    <link href="http://localhost/appci4/public/assets/plugins/select2/css/select2.min.css" rel="stylesheet">
 
     <!-- Sidemenu css-->
-    <link href="http://localhost/LTR/public/assets/css/sidemenu/sidemenu.css" rel="stylesheet">
+    <link href="http://localhost/appci4/public/assets/css/sidemenu/sidemenu.css" rel="stylesheet">
 
     <!-- Mutipleselect css-->
-    <link rel="stylesheet" href="http://localhost/LTR/public/assets/plugins/multipleselect/multiple-select.css">
+    <link rel="stylesheet" href="http://localhost/appci4/public/assets/plugins/multipleselect/multiple-select.css">
 
 </head>

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\AgendaModel;
 
-class Home extends BaseController
+class Agenda extends BaseController
 {
     protected $agenda;
 
@@ -34,7 +34,7 @@ class Home extends BaseController
             'catatan' => $this->request->getPost('catatan'),
         ]);
 
-        return redirect('agenda')->with('success', 'Data Added Successfully');
+        return redirect('admin/agenda')->with('success', 'Data Added Successfully');
     }
 
     public function edit($id)
@@ -51,12 +51,12 @@ class Home extends BaseController
             'catatan' => $this->request->getPost('catatan'),
         ]);
 
-        return redirect('agenda')->with('success', 'Data Updated Successfully');
+        return redirect('admin/agenda')->with('success', 'Data Updated Successfully');
     }
 
     public function delete($id)
     {
         $this->agenda->delete($id);
-        return redirect('agenda')->with('success', 'Data Deleted Successfully');
+        return redirect('admin/agenda')->with('success', 'Data Deleted Successfully');
     }
 }

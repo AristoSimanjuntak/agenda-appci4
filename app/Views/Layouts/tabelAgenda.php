@@ -22,9 +22,19 @@
             <?php
             }
             ?>
-            <div>
-                <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">Tambah Agenda</a>
-            </div>
+
+            <?php
+
+            if ($session->has('logged_in')) { ?>
+
+                <div>
+                    <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">Tambah Agenda</a>
+                </div>
+
+            <?php    }
+
+            ?>
+
 
 
             <div class="table-responsive tasks">
@@ -40,7 +50,16 @@
                             <th class="wd-lg-20p">Disposisi</th>
                             <th class="wd-lg-20p">Catatan</th>
                             <th class="wd-lg-20p">Notulensi</th>
-                            <th class="wd-lg-20p">Aksi</th>
+
+                            <?php
+
+                            if ($session->has('logged_in')) { ?>
+
+                                <th class="wd-lg-20p">Aksi</th>
+
+                            <?php    }
+
+                            ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,13 +74,22 @@
                                 <td class="wd-lg-10p"><?= $agenda['tempat'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['disposisi'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['catatan'] ?></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                                        Edit
-                                    </button>
-                                    <a href="<?= base_url('agenda/delete/' . $agenda['id']) ?>" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</a>
-                                </td>
+
+                                <?php
+                                if ($session->has('logged_in')) { ?>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
+                                            Edit
+                                        </button>
+                                        <form action="/admin/agenda/<?= $agenda['id'] ?>" method="post">
+                                            <input type="hidden" name="_method" value="DELETE" />
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                <?php    }
+                                ?>
                             </tr>
+                            
                             <div class="modal" id="editModal">
                                 <div class="modal-dialog modal-xl" role="document">
                                     <div class="modal-content modal-content-demo">
@@ -73,7 +101,8 @@
                                                 <div class="col-lg-12 col-md-12">
                                                     <div class="card custom-card">
                                                         <div class="card-body">
-                                                            <form action="<?= base_url('agenda/edit/' . $agenda['id']) ?>" method="post">
+                                                            <form action="<?= base_url('/admin/agenda/' . $agenda['id']) ?>" method="post">
+                                                                <input type="hidden" name="_method" value="PUT" />
                                                                 <?= csrf_field(); ?>
                                                                 <div class="row row-sm">
                                                                     <div class="col-md-12 col-lg-12 col-xl-12">
@@ -192,7 +221,7 @@
                                                                             <div class="row row-sm mg-t-20">
                                                                                 <div class="col-lg">
                                                                                     <label class="">Catatan</label>
-                                                                                    <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan" value="<?= $agenda['tempat'] ?>"></textarea>
+                                                                                    <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan" value="<?= $agenda['catatan'] ?>"></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <br>
@@ -236,7 +265,9 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="card custom-card">
                             <div class="card-body">
-                                <form action="/agenda" method="post">
+                                <form action="/admin/agenda" method="post">
+                                    <input type="hidden" name="_method" value="POST" />
+
                                     <?= csrf_field(); ?>
                                     <div class="row row-sm">
                                         <div class="col-md-12 col-lg-12 col-xl-12">

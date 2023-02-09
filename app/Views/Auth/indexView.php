@@ -15,30 +15,30 @@
     <title><?= $title ?? 'Dashboard' ?></title>
 
     <!-- Bootstrap css-->
-    <link href="http://localhost/LTR/public/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Icons css-->
-    <link href="http://localhost/LTR/public/assets/plugins/web-fonts/icons.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/plugins/web-fonts/plugin.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/icons.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/plugin.css" rel="stylesheet" />
 
     <!-- Style css-->
-    <link href="http://localhost/LTR/public/assets/css/style.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/css/skins.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/css/dark-style.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/css/colors/default.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/style.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/skins.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/dark-style.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/colors/default.css" rel="stylesheet" />
 
     <!-- Color css-->
-    <link id="theme" rel="stylesheet" type="text/css" media="all" href="http://localhost/LTR/public/assets/css/colors/color.css" />
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="http://localhost/appci4/public/assets/css/colors/color.css" />
 
     <!-- Select2 css-->
-    <link href="http://localhost/LTR/public/assets/plugins/select2/css/select2.min.css" rel="stylesheet">
+    <link href="http://localhost/appci4/public/assets/plugins/select2/css/select2.min.css" rel="stylesheet">
 
     <!-- Sidemenu css-->
-    <link href="http://localhost/LTR/public/assets/css/sidemenu/sidemenu.css" rel="stylesheet">
+    <link href="http://localhost/appci4/public/assets/css/sidemenu/sidemenu.css" rel="stylesheet">
 
     <!-- Mutipleselect css-->
-    <link rel="stylesheet" href="http://localhost/LTR/public/assets/plugins/multipleselect/multiple-select.css">
+    <link rel="stylesheet" href="http://localhost/appci4/public/assets/plugins/multipleselect/multiple-select.css">
 
 </head>
 
@@ -46,7 +46,7 @@
 
     <!-- Loader -->
     <div id="global-loader">
-        <img src="http://localhost/LTR/public/assets/img/loader.svg" class="loader-img" alt="Loader">
+        <img src="http://localhost/appci4/public/assets/img/loader.svg" class="loader-img" alt="Loader">
     </div>
     <!-- End Loader -->
 
@@ -70,14 +70,15 @@
                             <div class="container-fluid">
                                 <div class="row row-sm">
                                     <div class="card-body mt-2 mb-2">
-                                        <img src="http://localhost/LTR/public/assets/img/brand/logo.png" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
+                                        <img src="http://localhost/appci4/public/assets/img/brand/logo.png" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
                                         <div class="clearfix"></div>
                                         <form action="/auth/login" method="post">
                                             <h5 class="text-left mb-2">Signin to Your Account</h5>
                                             <p class="mb-4 text-muted tx-13 ml-0 text-left">Signin to create, discover and connect with the global community</p>
+
                                             <div class="form-group text-left">
-                                                <label>E:mail</label>
-                                                <input class="form-control" placeholder="Enter your email" type="text" id="email" name="email">
+                                                <label>Email</label>
+                                                <input class="form-control" placeholder="Enter your email" type="text" id="email" name="email" value="<?= set_value('email') ?>">
                                             </div>
                                             <div class="form-group text-left">
                                                 <label>Password</label>
@@ -85,17 +86,14 @@
                                             </div>
                                             <button class="btn ripple btn-main-primary btn-block" type="submit">Sign In</button>
                                         </form>
-                                        <p>
-                                            <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
-                                        <div class="alert alert-warning">
-                                            <?php echo session()->getFlashdata('gagal') ?>
-                                        </div>
-                                    <?php } ?>
-                                    </p>
-                                    <div class="text-left mt-5 ml-0 mb-1">
-                                        <!-- <div class="mb-1"><a href="<?php echo base_url('pages/forgot'); ?>">Forgot password?</a></div>
+
+                                        <div class="text-left mt-5 ml-0 mb-1">
+                                            <?php if (session()->getFlashdata('msg')) : ?>
+                                                <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
+                                            <?php endif; ?>
+                                            <!-- <div class="mb-1"><a href="<?php echo base_url('pages/forgot'); ?>">Forgot password?</a></div>
                                             <div>Don't have an account? <a href="<?php echo base_url('pages/signup'); ?>">Register Here</a></div> -->
-                                    </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -112,82 +110,82 @@
     <!-- End Page -->
 
     <!-- Jquery js-->
-    <script src="http://localhost/public/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="http://localhost/appci4/public/assets/plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap js-->
-    <script src="http://localhost/public/assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="http://localhost/public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://localhost/appci4/public/assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="http://localhost/appci4/public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Select2 js-->
-    <script src="http://localhost/public/assets/plugins/select2/js/select2.min.js'"></script>
+    <script src="http://localhost/appci4/public/assets/plugins/select2/js/select2.min.js'"></script>
 
     <!-- Custom js -->
-    <script src="/http://localhost/public/assets/js/custom.js"></script>
+    <script src="/http://localhost/appci4/public/assets/js/custom.js"></script>
 
 </body>
 <!-- Jquery js-->
-<script src="http://localhost/LTR/public/assets/plugins/jquery/jquery.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap js-->
-<script src="http://localhost/LTR/public/assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="http://localhost/LTR/public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Perfect-scrollbar js -->
-<script src="http://localhost/LTR/public/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
 <!-- Sidemenu js -->
-<script src="http://localhost/LTR/public/assets/plugins/sidemenu/sidemenu.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/sidemenu/sidemenu.js"></script>
 
 <!-- Sidebar js -->
-<script src="http://localhost/LTR/public/assets/plugins/sidebar/sidebar.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/sidebar/sidebar.js"></script>
 
 <!-- Select2 js-->
-<script src="http://localhost/LTR/public/assets/plugins/select2/js/select2.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/select2/js/select2.min.js"></script>
 
 <!-- Sticky js -->
-<script src="http://localhost/LTR/public/assets/js/sticky.js"></script>
+<script src="http://localhost/appci4/public/assets/js/sticky.js"></script>
 
 <!-- Custom js -->
-<script src="http://localhost/LTR/public/assets/js/custom.js"></script>
+<script src="http://localhost/appci4/public/assets/js/custom.js"></script>
 <!-- Internal Chart.Bundle js-->
-<script src="http://localhost/LTR/public/assets/plugins/chart.js/Chart.bundle.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/chart.js/Chart.bundle.min.js"></script>
 
 <!-- Peity js-->
-<script src="http://localhost/LTR/public/assets/plugins/peity/jquery.peity.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/peity/jquery.peity.min.js"></script>
 
 <!-- Internal Morris js -->
-<script src="http://localhost/LTR/public/assets/plugins/raphael/raphael.min.js"></script>
-<script src="http://localhost/LTR/public/assets/plugins/morris.js/morris.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/raphael/raphael.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/morris.js/morris.min.js"></script>
 
 <!-- Circle Progress js-->
-<script src="http://localhost/LTR/public/assets/js/circle-progress.min.js"></script>
-<script src="http://localhost/LTR/public/assets/js/chart-circle.js"></script>
+<script src="http://localhost/appci4/public/assets/js/circle-progress.min.js"></script>
+<script src="http://localhost/appci4/public/assets/js/chart-circle.js"></script>
 
 <!-- Internal Dashboard js-->
-<script src="http://localhost/LTR/public/assets/js/index.js"></script>
+<script src="http://localhost/appci4/public/assets/js/index.js"></script>
 
 <!-- Internal Jquery-Ui js-->
-<script src="http://localhost/LTR/public/assets/plugins/jquery-ui/ui/widgets/datepicker.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/jquery-ui/ui/widgets/datepicker.js"></script>
 
 <!-- Internal Jquery.maskedinput js-->
-<script src="http://localhost/LTR/public/assets/plugins/jquery.maskedinput/jquery.maskedinput.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/jquery.maskedinput/jquery.maskedinput.js"></script>
 
 <!-- Internal Specturm-colorpicker js-->
-<script src="http://localhost/LTR/public/assets/plugins/spectrum-colorpicker/spectrum.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/spectrum-colorpicker/spectrum.js"></script>
 
 <!-- Internal Ion-rangeslider js-->
-<script src="http://localhost/LTR/public/assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
 
 <!-- Select2 js-->
-<script src="http://localhost/LTR/public/assets/js/select2.js"></script>
+<script src="http://localhost/appci4/public/assets/js/select2.js"></script>
 
 <!--Bootstrap-datepicker js-->
-<script src="http://localhost/LTR/public/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 
 <!-- Internal jquery-simple-datetimepicker js -->
-<script src="http://localhost/LTR/public/assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js"></script>
 
 <!-- Internal Form-elements js-->
-<script src="http://localhost/LTR/public/assets/js/form-elements.js"></script>
+<script src="http://localhost/appci4/public/assets/js/form-elements.js"></script>
 
 </html>

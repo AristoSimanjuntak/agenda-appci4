@@ -15,30 +15,30 @@
     <title><?= $title ?? 'Dashboard' ?></title>
 
     <!-- Bootstrap css-->
-    <link href="http://localhost/LTR/public/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Icons css-->
-    <link href="http://localhost/LTR/public/assets/plugins/web-fonts/icons.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/plugins/web-fonts/plugin.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/icons.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/plugins/web-fonts/plugin.css" rel="stylesheet" />
 
     <!-- Style css-->
-    <link href="http://localhost/LTR/public/assets/css/style.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/css/skins.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/css/dark-style.css" rel="stylesheet" />
-    <link href="http://localhost/LTR/public/assets/css/colors/default.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/style.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/skins.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/dark-style.css" rel="stylesheet" />
+    <link href="http://localhost/appci4/public/assets/css/colors/default.css" rel="stylesheet" />
 
     <!-- Color css-->
-    <link id="theme" rel="stylesheet" type="text/css" media="all" href="http://localhost/LTR/public/assets/css/colors/color.css" />
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="http://localhost/appci4/public/assets/css/colors/color.css" />
 
     <!-- Select2 css-->
-    <link href="http://localhost/LTR/public/assets/plugins/select2/css/select2.min.css" rel="stylesheet">
+    <link href="http://localhost/appci4/public/assets/plugins/select2/css/select2.min.css" rel="stylesheet">
 
     <!-- Sidemenu css-->
-    <link href="http://localhost/LTR/public/assets/css/sidemenu/sidemenu.css" rel="stylesheet">
+    <link href="http://localhost/appci4/public/assets/css/sidemenu/sidemenu.css" rel="stylesheet">
 
     <!-- Mutipleselect css-->
-    <link rel="stylesheet" href="http://localhost/LTR/public/assets/plugins/multipleselect/multiple-select.css">
+    <link rel="stylesheet" href="http://localhost/appci4/public/assets/plugins/multipleselect/multiple-select.css">
 
 </head>
 
@@ -68,7 +68,7 @@
 
             <div class="dropdown main-profile-menu">
                 <a class="d-flex" href="">
-                    <span class="main-img-user"><img alt="avatar" src="http://localhost/LTR/public/assets/img/users/1.jpg"></span>
+                    <span class="main-img-user"><img alt="avatar" src="http://localhost/appci4/public/assets/img/users/1.jpg"></span>
                 </a>
 
                 <div class="dropdown-menu">
@@ -77,22 +77,22 @@
                         <p class="main-notification-text">Web Designer</p>
                     </div>
 
-                    <a class="dropdown-item border-top" href="http://localhost/LTR/pages/profile">
+                    <a class="dropdown-item border-top" href="http://localhost/appci4/pages/profile">
                         <i class="fe fe-user"></i> My Profile
                     </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
+                    <a class="dropdown-item" href="http://localhost/appci4/pages/profile">
                         <i class="fe fe-edit"></i> Edit Profile
                     </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
+                    <a class="dropdown-item" href="http://localhost/appci4/pages/profile">
                         <i class="fe fe-settings"></i> Account Settings
                     </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
+                    <a class="dropdown-item" href="http://localhost/appci4/pages/profile">
                         <i class="fe fe-settings"></i> Support
                     </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
+                    <a class="dropdown-item" href="http://localhost/appci4/pages/profile">
                         <i class="fe fe-compass"></i> Activity
                     </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/signin">
+                    <a class="dropdown-item" href="http://localhost/appci4/pages/signin">
                         <i class="fe fe-power"></i> Sign Out
                     </a>
                 </div>
@@ -251,7 +251,7 @@
     <div class="container">
         <div class="row row-sm">
             <div class="col-md-12">
-                <span>Copyright © 2021 <a href="#">BPKAD Medan</a>. Designed by <a href="https://www.spruko.com/">Spruko</a> All rights reserved.</span>
+                <span>Copyright © 2021 <a href="#">BPKAD Medan</a>. Designed by <a href="#"></a> All rights reserved.</span>
             </div>
         </div>
     </div>
@@ -261,68 +261,68 @@
 <a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a>
 
 <!-- Jquery js-->
-<script src="http://localhost/LTR/public/assets/plugins/jquery/jquery.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap js-->
-<script src="http://localhost/LTR/public/assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="http://localhost/LTR/public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Perfect-scrollbar js -->
-<script src="http://localhost/LTR/public/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
 <!-- Sidemenu js -->
-<script src="http://localhost/LTR/public/assets/plugins/sidemenu/sidemenu.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/sidemenu/sidemenu.js"></script>
 
 <!-- Sidebar js -->
-<script src="http://localhost/LTR/public/assets/plugins/sidebar/sidebar.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/sidebar/sidebar.js"></script>
 
 <!-- Select2 js-->
-<script src="http://localhost/LTR/public/assets/plugins/select2/js/select2.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/select2/js/select2.min.js"></script>
 
 <!-- Sticky js -->
-<script src="http://localhost/LTR/public/assets/js/sticky.js"></script>
+<script src="http://localhost/appci4/public/assets/js/sticky.js"></script>
 
 <!-- Custom js -->
-<script src="http://localhost/LTR/public/assets/js/custom.js"></script>
+<script src="http://localhost/appci4/public/assets/js/custom.js"></script>
 <!-- Internal Chart.Bundle js-->
-<script src="http://localhost/LTR/public/assets/plugins/chart.js/Chart.bundle.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/chart.js/Chart.bundle.min.js"></script>
 
 <!-- Peity js-->
-<script src="http://localhost/LTR/public/assets/plugins/peity/jquery.peity.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/peity/jquery.peity.min.js"></script>
 
 <!-- Internal Morris js -->
-<script src="http://localhost/LTR/public/assets/plugins/raphael/raphael.min.js"></script>
-<script src="http://localhost/LTR/public/assets/plugins/morris.js/morris.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/raphael/raphael.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/morris.js/morris.min.js"></script>
 
 <!-- Circle Progress js-->
-<script src="http://localhost/LTR/public/assets/js/circle-progress.min.js"></script>
-<script src="http://localhost/LTR/public/assets/js/chart-circle.js"></script>
+<script src="http://localhost/appci4/public/assets/js/circle-progress.min.js"></script>
+<script src="http://localhost/appci4/public/assets/js/chart-circle.js"></script>
 
 <!-- Internal Dashboard js-->
-<script src="http://localhost/LTR/public/assets/js/index.js"></script>
+<script src="http://localhost/appci4/public/assets/js/index.js"></script>
 
 <!-- Internal Jquery-Ui js-->
-<script src="http://localhost/LTR/public/assets/plugins/jquery-ui/ui/widgets/datepicker.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/jquery-ui/ui/widgets/datepicker.js"></script>
 
 <!-- Internal Jquery.maskedinput js-->
-<script src="http://localhost/LTR/public/assets/plugins/jquery.maskedinput/jquery.maskedinput.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/jquery.maskedinput/jquery.maskedinput.js"></script>
 
 <!-- Internal Specturm-colorpicker js-->
-<script src="http://localhost/LTR/public/assets/plugins/spectrum-colorpicker/spectrum.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/spectrum-colorpicker/spectrum.js"></script>
 
 <!-- Internal Ion-rangeslider js-->
-<script src="http://localhost/LTR/public/assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
 
 <!-- Select2 js-->
-<script src="http://localhost/LTR/public/assets/js/select2.js"></script>
+<script src="http://localhost/appci4/public/assets/js/select2.js"></script>
 
 <!--Bootstrap-datepicker js-->
-<script src="http://localhost/LTR/public/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 
 <!-- Internal jquery-simple-datetimepicker js -->
-<script src="http://localhost/LTR/public/assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js"></script>
+<script src="http://localhost/appci4/public/assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js"></script>
 
 <!-- Internal Form-elements js-->
-<script src="http://localhost/LTR/public/assets/js/form-elements.js"></script>
+<script src="http://localhost/appci4/public/assets/js/form-elements.js"></script>
 
 </html>

@@ -11,8 +11,8 @@
         <!-- 1 -->
         <div class="main-header-center">
             <div class="responsive-logo">
-                <a href="http://localhost/LTR/pages/index"><img src="http://localhost/LTR/public/assets/img/brand/logo.png" class="mobile-logo" alt="logo"></a>
-                <a href="http://localhost/LTR/pages/index"><img src="http://localhost/LTR/public/assets/img/brand/logo-light.png" class="mobile-logo-dark" alt="logo"></a>
+                <a href="http://localhost/appci4/pages/index"><img src="http://localhost/appci4/public/assets/img/brand/logo.png" class="mobile-logo" alt="logo"></a>
+                <a href="http://localhost/appci4/pages/index"><img src="http://localhost/appci4/public/assets/img/brand/logo-light.png" class="mobile-logo-dark" alt="logo"></a>
             </div>
         </div>
 
@@ -32,28 +32,19 @@
 
                 <div class="dropdown-menu">
                     <div class="header-navheading">
-                        <h6 class="main-notification-title">BPKAD MEDAN</h6>
-                        <p class="main-notification-text">Web Designer</p>
-                    </div>
+                        <h6 class="main-notification-title">BPKAD</h6>
 
-                    <a class="dropdown-item border-top" href="http://localhost/LTR/pages/profile">
-                        <i class="fe fe-user"></i> My Profile
-                    </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
-                        <i class="fe fe-edit"></i> Edit Profile
-                    </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
-                        <i class="fe fe-settings"></i> Account Settings
-                    </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
-                        <i class="fe fe-settings"></i> Support
-                    </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/profile">
-                        <i class="fe fe-compass"></i> Activity
-                    </a>
-                    <a class="dropdown-item" href="http://localhost/LTR/pages/signin">
-                        <i class="fe fe-power"></i> Sign Out
-                    </a>
+                    </div>
+                    <?php if ($session->has('logged_in')) { ?>
+                        <a class="dropdown-item" href="/logout">
+                            <i class="fe fe-power"></i> Sign Out
+                        </a>
+
+                    <?php    } else { ?>
+                        <a class="dropdown-item" href="/auth">
+                            <i class="fe fe-power"></i> Login
+                        </a>
+                    <?php } ?>
                 </div>
 
             </div>
