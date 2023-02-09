@@ -44,8 +44,8 @@
 <script src="http://localhost/appci4/public/assets/js/index.js"></script>
 
 <!-- Internal Datepicker js -->
-<script src="http://localhost/public/assets/plugins/model-datepicker/js/datepicker.js"></script>
-<script src="http://localhost/public/assets/plugins/model-datepicker/js/main.js"></script>
+<script src="/assets/plugins/model-datepicker/js/datepicker.js"></script>
+<script src="/assets/plugins/model-datepicker/js/main.js"></script>
 
 <!-- Modal js-->
 <script src="http://localhost/appci4/public/assets/js/modal.js"></script>

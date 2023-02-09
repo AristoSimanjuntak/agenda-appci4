@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<?php include 'head.php' ?>
+<?php include 'header.php' ?>
 
 <body class="main-body leftmenu">
 
