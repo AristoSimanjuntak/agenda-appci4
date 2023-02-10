@@ -62,8 +62,8 @@
 
                                 <div class="clearfix"></div>
                                 <img src="http://localhost/appci4/public/img/logo.png" class="ht-150 mb-0" alt="user">
-                                <h5 class="mt-0 text-white">Create Your Account</h5>
-                                <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Badan Pengelolaan Keuangan dan Aset Daerah Kota Medan</span>
+                                <h5 class="mt-0 text-white">Badan Pengelolaan Keuangan dan Aset Daerah Kota Medan</h5>
+                                <span class="tx-white-6 tx-13 mb-5 mt-xl-0"></span>
                             </div>
                         </div>
                         <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
@@ -73,18 +73,19 @@
                                         <img src="http://localhost/appci4/public/assets/img/brand/logo.png" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
                                         <div class="clearfix"></div>
                                         <form action="/auth/login" method="post">
-                                            <h5 class="text-left mb-2">Signin to Your Account</h5>
-                                            <p class="mb-4 text-muted tx-13 ml-0 text-left">Signin to create, discover and connect with the global community</p>
+                                            <h5 class="text-left mb-2">Agenda Rapat</h5>
+                                            <p class="mb-4 text-muted tx-13 ml-0 text-left">Badan Pengelolaan Keuangan dan Aset Daerah Kota Medan</p>
 
                                             <div class="form-group text-left">
                                                 <label>Email</label>
-                                                <input class="form-control" placeholder="Enter your email" type="text" id="email" name="email" value="<?= set_value('email') ?>">
+                                                <input class="form-control" placeholder="Email" type="text" id="email" name="email" value="<?= set_value('email') ?>">
                                             </div>
                                             <div class="form-group text-left">
                                                 <label>Password</label>
-                                                <input class="form-control" placeholder="Enter your password" type="password" id="password" name="password">
+                                                <input class="form-control" placeholder="Password" type="password" id="password" name="password">
                                             </div>
-                                            <button class="btn ripple btn-main-primary btn-block" type="submit">Sign In</button>
+                                            <button class="btn ripple btn-main-primary btn-block" type="submit">Masuk</button>
+                                            <button class="btn  btn-main-primary"> <a href=""></a> Kembali</button>
                                         </form>
 
                                         <div class="text-left mt-5 ml-0 mb-1">
