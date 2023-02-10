@@ -85,9 +85,9 @@
                                                 <input class="form-control" placeholder="Password" type="password" id="password" name="password">
                                             </div>
                                             <button class="btn ripple btn-main-primary btn-block" type="submit">Masuk</button>
-                                            <button class="btn  btn-main-primary"> <a href=""></a> Kembali</button>
                                         </form>
 
+                                        <a href="/" class="btn ripple btn-main-secondary btn-block">Kembali</a>
                                         <div class="text-left mt-5 ml-0 mb-1">
                                             <?php if (session()->getFlashdata('msg')) : ?>
                                                 <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
