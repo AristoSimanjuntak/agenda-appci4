@@ -31,27 +31,27 @@
 
             <?php    }
             ?>
-            <div class="table-responsive tasks">
-                <table class="table card-table table-vcenter text-nowrap mb-0  border">
+            <div class="table-responsive">
+                <table class="table" id="example1">
                     <thead>
                         <tr>
-                            <th class="wd-lg-10p">No</th>
-                            <th class="wd-lg-20p">Agenda Rapat</th>
-                            <th class="wd-lg-20p">asal Surat</th>
-                            <th class="wd-lg-20p">No Surat</th>
-                            <th class="wd-lg-20p">No Surat BPKAD</th>
-                            <th class="wd-lg-20p">Tempat</th>
-                            <th class="wd-lg-20p">Tanggal</th>
-                            <!-- <th class="wd-lg-20p">Waktu</th> -->
-                            <th class="wd-lg-20p">Disposisi</th>
-                            <th class="wd-lg-20p">Catatan</th>
-                            <th class="wd-lg-20p">Notulensi</th>
+                            <th class="wd-20p">No</th>
+                            <th class="wd-20p">Agenda Rapat</th>
+                            <th class="wd-20p">asal Surat</th>
+                            <th class="wd-20p">No Surat</th>
+                            <th class="wd-20p">No Surat BPKAD</th>
+                            <th class="wd-20p">Tempat</th>
+                            <th class="wd-20p">Tanggal</th>
+                            <th class="wd-20p">Waktu</th>
+                            <th class="wd-20p">Disposisi</th>
+                            <th class="wd-20p">Catatan</th>
+                            <th class="wd-20p">Notulensi</th>
 
                             <?php
 
                             if ($session->has('logged_in')) { ?>
 
-                                <th class="wd-lg-20p">Aksi</th>
+                                <th>Aksi</th>
 
                             <?php    }
 
@@ -61,28 +61,35 @@
                     <tbody>
                         <?php foreach ($home as $id => $agenda) : ?>
                             <tr>
-                                <td class="wd-lg-10p"> <?= ++$id ?> </td>
-                                <td class="wd-lg-10p"><?= $agenda['nama_agenda'] ?></td>
-                                <td class="wd-lg-10p"><?= $agenda['asal_surat'] ?></td>
-                                <td class="wd-lg-10p"><?= $agenda['no_surat'] ?></td>
-                                <td class="wd-lg-10p"><?= $agenda['no_bkad'] ?></td>
-                                <td class="wd-lg-10p"><?= $agenda['tempat'] ?></td>
-                                <td class="wd-lg-10p"><?= $agenda['tgl'] ?></td>
+                                <?php
 
-                                <td class="wd-lg-10p"><?= $agenda['disposisi'] ?></td>
-                                <td class="wd-lg-10p"><?= $agenda['catatan'] ?></td>
-                                <td class="wd-lg-10p"><?= $agenda['notulensi'] ?></td>
+                                $dt = explode(" ", $agenda['tgl']);
+
+                                ?>
+                                <td> <?= ++$id ?> </td>
+                                <td><?= $agenda['nama_agenda'] ?></td>
+                                <td><?= $agenda['asal_surat'] ?></td>
+                                <td><?= $agenda['no_surat'] ?></td>
+                                <td><?= $agenda['no_bkad'] ?></td>
+                                <td><?= $agenda['tempat'] ?></td>
+                                <td><?= $dt['0'] ?></td>
+                                <td><?= $dt['1'] ?></td>
+
+                                <td><?= $agenda['disposisi'] ?></td>
+                                <td><?= $agenda['catatan'] ?></td>
+                                <td><?= $agenda['notulensi'] ?></td>
 
                                 <?php
                                 if ($session->has('logged_in')) { ?>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $agenda['id'] ?>">
-                                            Edit
-                                        </button>
-                                        <form action="/admin/agenda/<?= $agenda['id'] ?>" method="post">
-                                            <input type="hidden" name="_method" value="DELETE" />
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
+                                        <button class="btn ripple btn-primary" data-toggle="dropdown">Aksi <i class="icon ion-ios-arrow-down tx-11 mg-l-3"></i></button>
+                                        <div class="dropdown-menu">
+                                            <button type="button" class="dropdown-item" data-toggle="modal" data-target="#editModal<?= $agenda['id'] ?>">Edit</button>
+                                            <form action="/admin/agenda/<?= $agenda['id'] ?>" method="post">
+                                                <input type="hidden" name="_method" value="DELETE" />
+                                                <button type="submit" class="dropdown-item">Delete</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 <?php    }
                                 ?>
@@ -215,13 +222,10 @@
                                                                             </div>
 
                                                                             <br>
-                                                                            <div class="form-group mg-b-20">
-                                                                                <label class="ckbox">
-                                                                                    <input checked type="checkbox"><span class="tx-13">I agree terms and conditions</span>
-                                                                                </label>
+                                                                            <div>
+                                                                                <button class="btn btn-main-primary " type="submit">Simpan</button>
+                                                                                <button class="btn btn-secondary" data-dismiss="modal" type="button">Batal</button>
                                                                             </div>
-                                                                            <button class="btn ripple btn-main-primary btn-block" type="submit">Submit</button>
-                                                                            <button class="btn ripple btn-secondary btn-block" data-dismiss="modal" type="button">Close</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -308,18 +312,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-lg-6">
-                                                        <div class="mg-b-20">
-                                                            <label class="">waktu</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend">
-                                                                    <div class="input-group-text">
-                                                                        <i class="fe fe-calendar lh--9 op-6"></i>
-                                                                    </div>
-                                                                </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="time" id="waktu" name="waktu">
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
+
                                                     <div class="col-lg-6">
 
                                                     </div>
@@ -362,13 +355,11 @@
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <div class="form-group mg-b-20">
-                                                    <label class="ckbox">
-                                                        <input checked type="checkbox"><span class="tx-13">I agree terms and conditions</span>
-                                                    </label>
+
+                                                <div>
+                                                    <button class="btn btn-main-primary " type="submit">Simpan</button>
+                                                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Batal</button>
                                                 </div>
-                                                <button class="btn ripple btn-main-primary btn-block" type="submit">Submit</button>
-                                                <button class="btn ripple btn-secondary btn-block" data-dismiss="modal" type="button">Close</button>
                                             </div>
                                         </div>
                                     </div>
