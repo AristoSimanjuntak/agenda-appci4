@@ -13,7 +13,7 @@
         <!-- Header -->
         <?= $this->renderSection('content') ?>
         <!-- End Header -->
-        <?= include 'mobileHeader.php' ?>
+
 
         <!-- Main Content-->
         <div class="main-content pt-0">

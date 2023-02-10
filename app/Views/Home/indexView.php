@@ -1,4 +1,4 @@
-<?= $this->extend('Layouts/indexView2') ?>
+<?= $this->extend('Layouts/template') ?>
 <?= $this->section('content') ?>
 
 <div class="main-header sticky">

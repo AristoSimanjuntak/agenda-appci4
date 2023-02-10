@@ -1,6 +1,7 @@
 <div>
     <h2 class="main-content-title tx-20 mg-b-5">Daftar Agenda </h2>
 </div>
+
 <div class="col-lg-12">
     <div class="card custom-card mg-b-20">
         <div class="card-body">
@@ -19,24 +20,17 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+            <?php } ?>
             <?php
-            }
-            ?>
-
-            <?php
-
             if ($session->has('logged_in')) { ?>
 
                 <div>
                     <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">Tambah Agenda</a>
                 </div>
+                <br>
 
             <?php    }
-
             ?>
-
-
-
             <div class="table-responsive tasks">
                 <table class="table card-table table-vcenter text-nowrap mb-0  border">
                     <thead>
@@ -82,7 +76,7 @@
                                 <?php
                                 if ($session->has('logged_in')) { ?>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $agenda['id'] ?>">
                                             Edit
                                         </button>
                                         <form action="/admin/agenda/<?= $agenda['id'] ?>" method="post">
@@ -94,7 +88,7 @@
                                 ?>
                             </tr>
 
-                            <div class="modal" id="editModal">
+                            <div class="modal" id="editModal<?= $agenda['id'] ?>">
                                 <div class="modal-dialog modal-xl" role="document">
                                     <div class="modal-content modal-content-demo">
                                         <div class="modal-header">
@@ -124,7 +118,7 @@
                                                                             <div class="form-group">
                                                                                 <label class="">Nomor Surat</label>
                                                                                 <div class="pos-relative">
-                                                                                    <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat" type="text" id="no_surat" name="no_surat" value="<?= $agenda['no_surat'] ?>">
+                                                                                    <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat" type="number" id="no_surat" name="no_surat" value="<?= $agenda['no_surat'] ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group">
@@ -167,66 +161,43 @@
                                                                             </div>
 
                                                                             <div class="row row-sm">
-                                                                                <div class="col-lg-3">
-                                                                                    <div class="mg-b-20">
-                                                                                        <label class="">Disposisi</label>
-                                                                                        <div class="d-sm-flex">
-                                                                                            <div class="parsley-select wd-sm-250" id="slWrapper">
-                                                                                                <select class="form-control select2" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" data-placeholder="Pilih Disposisi" required="" id="disposisi" name="disposisi" value="<?= $agenda['disposisi'] ?>">
-                                                                                                    <option label="Choose one">
-                                                                                                    </option>
-                                                                                                    <option value="Sekertaris">
-                                                                                                        Sekertaris
-                                                                                                    </option>
-                                                                                                    <option value="Kabid Anggaran">
-                                                                                                        Kabid Anggaran
-                                                                                                    </option>
-                                                                                                    <option value="Kabid Pembedaharaan">
-                                                                                                        Kabid Pembedaharaan
-                                                                                                    </option>
-                                                                                                    <option value="Kabid Aset dan Investasi">
-                                                                                                        Kabid Aset dan Investasi
-                                                                                                    </option>
-                                                                                                    <option value="Kabid Akuntansi">
-                                                                                                        Kabid Akuntansi
-                                                                                                    </option>
-                                                                                                </select>
-                                                                                                <div id="slErrorContainer"></div>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <p class="mg-b-10">Disposisi</p>
+                                                                                    <?php
+                                                                                    $dispo = explode(", ", $agenda['disposisi']);
+                                                                                    ?>
+                                                                                    <select class="form-control select2" multiple="multiple" name="disposisi[]">
 
-                                                                                    </div>
+                                                                                        <option <?php
+                                                                                                if (in_array("Sekertaris", $dispo)) { ?> selected <?php
+                                                                                                                                                }
+                                                                                                                                                    ?> value="Sekertaris">
+                                                                                            Sekertaris
+                                                                                        </option>
+                                                                                        <option <?php
+                                                                                                if (in_array("Kabid Anggaran", $dispo)) { ?> selected <?php
+                                                                                                                                                    }
+                                                                                                                                                        ?> value="Kabid Anggaran">
+                                                                                            Kabid Anggaran
+                                                                                        </option>
+                                                                                        <option <?php
+                                                                                                if (in_array("Kabid Pembedaharaan", $dispo)) { ?> selected <?php
+                                                                                                                                                        }
+                                                                                                                                                            ?> value="Kabid Pembedaharaan">
+                                                                                            Kabid Pembedaharaan
+                                                                                        </option>
+                                                                                        <option <?php
+                                                                                                if (in_array("Kabid Aset dan Investasi", $dispo)) { ?> selected <?php
+                                                                                                                                                            }
+                                                                                                                                                                ?> value="Kabid Aset dan Investasi">
+                                                                                            Kabid Aset dan Investasi
+                                                                                        </option>
+                                                                                        <option <?php
+                                                                                                if (in_array("Kabid Akuntansi", $dispo)) { ?> selected <?php } ?> value="Kabid Akuntansi">
+                                                                                            Kabid Akuntansi
+                                                                                        </option>
+                                                                                    </select>
                                                                                 </div>
-                                                                                <!-- <div class="col-lg-3">
-                                                                                        <div class="mg-b-20">
-                                                                                            <label class="">Disposisi</label>
-                                                                                            <div class="form-group">
-                                                                                                <div class="pos-relative">
-                                                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="mg-b-20">
-                                                                                            <label class="">Disposisi</label>
-                                                                                            <div class="form-group">
-                                                                                                <div class="pos-relative">
-                                                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="mg-b-20">
-                                                                                            <label class="">Disposisi</label>
-                                                                                            <div class="form-group">
-                                                                                                <div class="pos-relative">
-                                                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div> -->
 
                                                                             </div>
 
@@ -304,7 +275,7 @@
                                                 <div class="form-group">
                                                     <label class="">Nomor Surat</label>
                                                     <div class="pos-relative">
-                                                        <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat" type="text" id="no_surat" name="no_surat">
+                                                        <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat" type="number" id="no_surat" name="no_surat">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -357,84 +328,24 @@
                                                 <div class="row row-sm">
                                                     <div class="col-lg-4">
                                                         <p class="mg-b-10">Disposisi</p>
-                                                        <select class="form-control select2" multiple="multiple" id="disposisi" name="disposisi">
-                                                            <option value="Sekertaris" id="sekertaris" name="sekertaris">
+                                                        <select class="form-control select2" multiple="multiple" id="disposisi" name="disposisi[]">
+                                                            <option value="Sekertaris">
                                                                 Sekertaris
                                                             </option>
-                                                            <option value="Kabid Anggaran" id="anggaran" name="anggaran">
+                                                            <option value="Kabid Anggaran">
                                                                 Kabid Anggaran
                                                             </option>
-                                                            <option value="Kabid Pembedaharaan" id="bendahara" name="bendahara">
+                                                            <option value="Kabid Pembedaharaan">
                                                                 Kabid Pembedaharaan
                                                             </option>
-                                                            <option value="Kabid Aset dan Investasi" id="aset" name="aset">
+                                                            <option value="Kabid Aset dan Investasi">
                                                                 Kabid Aset dan Investasi
                                                             </option>
-                                                            <option value="Kabid Akuntansi" id="akuntan" name="akuntan">
+                                                            <option value="Kabid Akuntansi">
                                                                 Kabid Akuntansi
                                                             </option>
                                                         </select>
                                                     </div>
-                                                    <!-- <div class="col-lg-3">
-                                                        <div class="mg-b-20">
-                                                            <label class="">Disposisi</label>
-                                                            <div class="d-sm-flex">
-                                                                <div class="parsley-select wd-sm-250" id="slWrapper">
-                                                                    <select class="form-control select2" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" data-placeholder="Pilih Disposisi" required="" id="disposisi" name="disposisi">
-                                                                        <option label="Choose one">
-                                                                        </option>
-                                                                        <option value="Sekertaris">
-                                                                            Sekertaris
-                                                                        </option>
-                                                                        <option value="Kabid Anggaran">
-                                                                            Kabid Anggaran
-                                                                        </option>
-                                                                        <option value="Kabid Pembedaharaan">
-                                                                            Kabid Pembedaharaan
-                                                                        </option>
-                                                                        <option value="Kabid Aset dan Investasi">
-                                                                            Kabid Aset dan Investasi
-                                                                        </option>
-                                                                        <option value="Kabid Akuntansi">
-                                                                            Kabid Akuntansi
-                                                                        </option>
-                                                                    </select>
-                                                                    <div id="slErrorContainer"></div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div> -->
-                                                    <!-- <div class="col-lg-3">
-                                                        <div class="mg-b-20">
-                                                            <label class="">Disposisi</label>
-                                                            <div class="form-group">
-                                                                <div class="pos-relative">
-                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mg-b-20">
-                                                            <label class="">Disposisi</label>
-                                                            <div class="form-group">
-                                                                <div class="pos-relative">
-                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mg-b-20">
-                                                            <label class="">Disposisi</label>
-                                                            <div class="form-group">
-                                                                <div class="pos-relative">
-                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="" name="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
 
                                                 </div>
 

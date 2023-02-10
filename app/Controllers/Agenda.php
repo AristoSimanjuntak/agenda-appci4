@@ -40,27 +40,8 @@ class Agenda extends BaseController
 
     public function create()
     {
-        return $this->respond($this->request->getPost());
-        // $this->agenda->insert([
-        //     'nama_agenda' => $this->request->getPost('nama_agenda'),
-        //     'asal_surat' => $this->request->getPost('asal_surat'),
-        //     'no_surat' => $this->request->getPost('no_surat'),
-        //     'no_bkad' => $this->request->getPost('no_bkad'),
-        //     'tgl' => $this->request->getPost('tgl'),
-        //     'waktu' => $this->request->getPost('waktu'),
-        //     'tempat' => $this->request->getPost('tempat'),
-        //     'disposisi' => $this->request->getPost('disposisi'),
-        //     'catatan' => $this->request->getPost('catatan'),
-        //     'notulensi' => $this->request->getPost('notulensi'),
-        // ]);
 
-        // return redirect('admin/agenda')->with('success', 'Data Added Successfully');
-    }
-
-    public function edit($id)
-    {
-
-        $this->agenda->update($id, [
+        $data = [
             'nama_agenda' => $this->request->getPost('nama_agenda'),
             'asal_surat' => $this->request->getPost('asal_surat'),
             'no_surat' => $this->request->getPost('no_surat'),
@@ -71,7 +52,33 @@ class Agenda extends BaseController
             'disposisi' => $this->request->getPost('disposisi'),
             'catatan' => $this->request->getPost('catatan'),
             'notulensi' => $this->request->getPost('notulensi'),
-        ]);
+        ];
+
+        $data['disposisi'] = implode(", ", $data['disposisi']);
+
+        $this->agenda->insert($data);
+
+        return redirect('admin/agenda')->with('success', 'Data Added Successfully');
+    }
+
+    public function edit($id)
+    {
+        $data = [
+            'nama_agenda' => $this->request->getPost('nama_agenda'),
+            'asal_surat' => $this->request->getPost('asal_surat'),
+            'no_surat' => $this->request->getPost('no_surat'),
+            'no_bkad' => $this->request->getPost('no_bkad'),
+            'tgl' => $this->request->getPost('tgl'),
+            'waktu' => $this->request->getPost('waktu'),
+            'tempat' => $this->request->getPost('tempat'),
+            'disposisi' => $this->request->getPost('disposisi'),
+            'catatan' => $this->request->getPost('catatan'),
+            'notulensi' => $this->request->getPost('notulensi'),
+        ];
+
+        $data['disposisi'] = implode(", ", $data['disposisi']);
+
+        $this->agenda->update($id, $data);
 
         return redirect('admin/agenda')->with('success', 'Data Updated Successfully');
     }

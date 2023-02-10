@@ -107,20 +107,6 @@
     <!-- End Row -->
 
     </div>
-    <!-- End Page -->
-
-    <!-- Jquery js-->
-    <script src="http://localhost/appci4/public/assets/plugins/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap js-->
-    <script src="http://localhost/appci4/public/assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="http://localhost/appci4/public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Select2 js-->
-    <script src="http://localhost/appci4/public/assets/plugins/select2/js/select2.min.js'"></script>
-
-    <!-- Custom js -->
-    <script src="/http://localhost/appci4/public/assets/js/custom.js"></script>
 
 </body>
 <!-- Jquery js-->
@@ -147,6 +133,7 @@
 
 <!-- Custom js -->
 <script src="http://localhost/appci4/public/assets/js/custom.js"></script>
+
 <!-- Internal Chart.Bundle js-->
 <script src="http://localhost/appci4/public/assets/plugins/chart.js/Chart.bundle.min.js"></script>
 

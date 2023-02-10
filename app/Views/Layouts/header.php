@@ -37,3 +37,4 @@
 
     <!-- Sidemenu css-->
     <link href="http://localhost/appci4/public/assets/css/sidemenu/sidemenu.css" rel="stylesheet">
+</head>
