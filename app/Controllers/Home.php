@@ -30,9 +30,11 @@ class Home extends BaseController
             'no_surat' => $this->request->getPost('no_surat'),
             'no_bkad' => $this->request->getPost('no_bkad'),
             'tgl' => $this->request->getPost('tgl'),
+            'waktu' => $this->request->getPost('waktu'),
             'tempat' => $this->request->getPost('tempat'),
             'disposisi' => $this->request->getPost('disposisi'),
             'catatan' => $this->request->getPost('catatan'),
+            'notulensi' => $this->request->getPost('notulensi'),
         ]);
 
         return redirect('agenda')->with('success', 'Data Added Successfully');
@@ -47,9 +49,11 @@ class Home extends BaseController
             'no_surat' => $this->request->getPost('no_surat'),
             'no_bkad' => $this->request->getPost('no_bkad'),
             'tgl' => $this->request->getPost('tgl'),
+            'waktu' => $this->request->getPost('waktu'),
             'tempat' => $this->request->getPost('tempat'),
             'disposisi' => $this->request->getPost('disposisi'),
             'catatan' => $this->request->getPost('catatan'),
+            'notulensi' => $this->request->getPost('notulensi'),
         ]);
 
         return redirect('agenda')->with('success', 'Data Updated Successfully');

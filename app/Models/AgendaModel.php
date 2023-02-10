@@ -10,7 +10,7 @@ class AgendaModel extends Model
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['nama_agenda', 'asal_surat', 'no_surat', 'no_bkad', 'tgl', 'tempat', 'disposisi', 'catatan'];
+    protected $allowedFields = ['nama_agenda', 'asal_surat', 'no_surat', 'no_bkad', 'tgl', 'tempat', 'disposisi', 'catatan', 'notulensi'];
 
 
     public function dateSame()
@@ -25,7 +25,9 @@ class AgendaModel extends Model
         $data = [];
         $count = 0;
         foreach ($agenda->getResult() as $ag) {
-            if ($ag->tgl === $date_now) {
+
+            $ag->tgl = explode(" ", $ag->tgl);
+            if ($ag->tgl[0] === $date_now) {
 
                 array_push($data, $ag);
                 $count++;

@@ -48,7 +48,7 @@
                             <th class="wd-lg-20p">No Surat BPKAD</th>
                             <th class="wd-lg-20p">Tempat</th>
                             <th class="wd-lg-20p">Tanggal</th>
-                            <th class="wd-lg-20p">Waktu</th>
+                            <!-- <th class="wd-lg-20p">Waktu</th> -->
                             <th class="wd-lg-20p">Disposisi</th>
                             <th class="wd-lg-20p">Catatan</th>
                             <th class="wd-lg-20p">Notulensi</th>
@@ -74,9 +74,10 @@
                                 <td class="wd-lg-10p"><?= $agenda['no_bkad'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['tempat'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['tgl'] ?></td>
-                                <td class="wd-lg-10p"><?= $agenda['waktu'] ?></td>
+
                                 <td class="wd-lg-10p"><?= $agenda['disposisi'] ?></td>
                                 <td class="wd-lg-10p"><?= $agenda['catatan'] ?></td>
+                                <td class="wd-lg-10p"><?= $agenda['notulensi'] ?></td>
 
                                 <?php
                                 if ($session->has('logged_in')) { ?>
@@ -132,20 +133,21 @@
                                                                                     <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat BKAD" type="number" id="no_bkad" name="no_bkad" value="<?= $agenda['no_bkad'] ?>">
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="mg-b-20">
-                                                                                    <label class="">Tempat</label>
-                                                                                    <div class="form-group">
-                                                                                        <div class="pos-relative">
-                                                                                            <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat" value="<?= $agenda['tempat'] ?>">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+
                                                                             <div class="row row-sm">
                                                                                 <div class="col-lg-6">
                                                                                     <div class="mg-b-20">
-                                                                                        <label class="">Tanggal</label>
+                                                                                        <label class="">Tempat</label>
+                                                                                        <div class="form-group">
+                                                                                            <div class="pos-relative">
+                                                                                                <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat" value="<?= $agenda['tempat'] ?>">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6">
+                                                                                    <div class="mg-b-20">
+                                                                                        <label class="">Tanggal & Waktu</label>
                                                                                         <div class="input-group">
                                                                                             <div class="input-group-prepend">
                                                                                                 <div class="input-group-text">
@@ -155,12 +157,12 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="form-group">
+                                                                                <!-- <div class="form-group">
                                                                                     <label class="">Waktu</label>
                                                                                     <div class="pos-relative">
-                                                                                        <input class="form-control pd-r-80" required="" placeholder="" type="time" id="waktu" name="waktu" value="<?= $agenda['waktu'] ?>">
+                                                                                        <input class="form-control pd-r-80" required="" placeholder="" type="time" id="waktu" name="waktu" value="">
                                                                                     </div>
-                                                                                </div>
+                                                                                </div> -->
 
                                                                             </div>
 
@@ -231,9 +233,16 @@
                                                                             <div class="row row-sm mg-t-20">
                                                                                 <div class="col-lg">
                                                                                     <label class="">Catatan</label>
-                                                                                    <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan" <?= $agenda['catatan'] ?>></textarea>
+                                                                                    <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan"><?= $agenda['catatan'] ?></textarea>
                                                                                 </div>
                                                                             </div>
+                                                                            <div class="row row-sm mg-t-20">
+                                                                                <div class="col-lg">
+                                                                                    <label class="">Notulensi</label>
+                                                                                    <textarea class="form-control" placeholder="" rows="3" id="notulensi" name="notulensi"><?= $agenda['notulensi'] ?></textarea>
+                                                                                </div>
+                                                                            </div>
+
                                                                             <br>
                                                                             <div class="form-group mg-b-20">
                                                                                 <label class="ckbox">
@@ -304,15 +313,18 @@
                                                         <input class="form-control pd-r-80" required="" placeholder="Isi Nomor Surat BKAD" type="number" id="no_bkad" name="no_bkad">
                                                     </div>
                                                 </div>
-                                                <div class="mg-b-20">
-                                                    <label class="">Tempat</label>
-                                                    <div class="form-group">
-                                                        <div class="pos-relative">
-                                                            <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat">
+
+                                                <div class="row row-sm">
+                                                    <div class="col-lg-6">
+                                                        <div class="mg-b-20">
+                                                            <label class="">Tempat</label>
+                                                            <div class="form-group">
+                                                                <div class="pos-relative">
+                                                                    <input class="form-control pd-r-80" required="" placeholder="Lokasi Rapat" type="text" id="tempat" name="tempat">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row row-sm">
                                                     <div class="col-lg-6">
                                                         <div class="mg-b-20">
                                                             <label class="">Tanggal</label>
@@ -321,11 +333,11 @@
                                                                     <div class="input-group-text">
                                                                         <i class="fe fe-calendar lh--9 op-6"></i>
                                                                     </div>
-                                                                </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="date" id="tgl" name="tgl">
+                                                                </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="datetime-local" id="tgl" name="tgl">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
+                                                    <!-- <div class="col-lg-6">
                                                         <div class="mg-b-20">
                                                             <label class="">waktu</label>
                                                             <div class="input-group">
@@ -336,14 +348,34 @@
                                                                 </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="time" id="waktu" name="waktu">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="col-lg-6">
 
                                                     </div>
                                                 </div>
 
                                                 <div class="row row-sm">
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-4">
+                                                        <p class="mg-b-10">Disposisi</p>
+                                                        <select class="form-control select2" multiple="multiple" id="disposisi" name="disposisi">
+                                                            <option value="Sekertaris" id="sekertaris" name="sekertaris">
+                                                                Sekertaris
+                                                            </option>
+                                                            <option value="Kabid Anggaran" id="anggaran" name="anggaran">
+                                                                Kabid Anggaran
+                                                            </option>
+                                                            <option value="Kabid Pembedaharaan" id="bendahara" name="bendahara">
+                                                                Kabid Pembedaharaan
+                                                            </option>
+                                                            <option value="Kabid Aset dan Investasi" id="aset" name="aset">
+                                                                Kabid Aset dan Investasi
+                                                            </option>
+                                                            <option value="Kabid Akuntansi" id="akuntan" name="akuntan">
+                                                                Kabid Akuntansi
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- <div class="col-lg-3">
                                                         <div class="mg-b-20">
                                                             <label class="">Disposisi</label>
                                                             <div class="d-sm-flex">
@@ -372,7 +404,7 @@
                                                             </div>
 
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <!-- <div class="col-lg-3">
                                                         <div class="mg-b-20">
                                                             <label class="">Disposisi</label>
@@ -410,6 +442,12 @@
                                                     <div class="col-lg">
                                                         <label class="">Catatan</label>
                                                         <textarea class="form-control" placeholder="Isi Catatan" rows="3" id="catatan" name="catatan"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="row row-sm mg-t-20">
+                                                    <div class="col-lg">
+                                                        <label class="">Notulensi</label>
+                                                        <textarea class="form-control" placeholder="Isi Notulensi" rows="3" id="notulensi" name="notulensi"></textarea>
                                                     </div>
                                                 </div>
                                                 <br>
