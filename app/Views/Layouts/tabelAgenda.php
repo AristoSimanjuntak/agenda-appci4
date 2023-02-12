@@ -5,12 +5,9 @@
 <div class="col-lg-12">
     <div class="card custom-card mg-b-20">
         <div class="card-body">
-            <!--<div class="card-header border-bottom-0 pt-0 pl-0 pr-0 d-flex">
 
-                <div>
-                    <a href="/Agenda" class="btn btn-primary"> <i class="bi bi-plus"></i> Tambah Agenda</a>
-                </div>
-            </div>-->
+
+
             <?php
             if (session()->getFlashData('success')) {
             ?>
