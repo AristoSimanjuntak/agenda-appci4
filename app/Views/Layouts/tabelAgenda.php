@@ -33,12 +33,12 @@
                     <thead>
                         <tr>
                             <th class="wd-20p">No</th>
+                            <th class="wd-20p">Tanggal</th>
+                            <th class="wd-20p">Tempat</th>
                             <th class="wd-20p">Agenda Rapat</th>
                             <th class="wd-20p">asal Surat</th>
                             <th class="wd-20p">No Surat</th>
                             <th class="wd-20p">No Surat BPKAD</th>
-                            <th class="wd-20p">Tempat</th>
-                            <th class="wd-20p">Tanggal</th>
                             <th class="wd-20p">Waktu</th>
                             <th class="wd-20p">Disposisi</th>
                             <th class="wd-20p">Catatan</th>
@@ -60,18 +60,16 @@
                             <tr>
                                 <?php
 
-                                $dt = explode(" ", $agenda['tgl']);
+                                // $dt = explode(" ", $agenda['tgl']);
 
                                 ?>
                                 <td> <?= ++$id ?> </td>
+                                <td><?= $agenda['tgl'] ?></td>
+                                <td><?= $agenda['tempat'] ?></td>
                                 <td><?= $agenda['nama_agenda'] ?></td>
                                 <td><?= $agenda['asal_surat'] ?></td>
                                 <td><?= $agenda['no_surat'] ?></td>
                                 <td><?= $agenda['no_bkad'] ?></td>
-                                <td><?= $agenda['tempat'] ?></td>
-                                <td><?= $dt['0'] ?></td>
-                                <td><?= $dt['1'] ?></td>
-
                                 <td><?= $agenda['disposisi'] ?></td>
                                 <td><?= $agenda['catatan'] ?></td>
                                 <td><?= $agenda['notulensi'] ?></td>
