@@ -74,3 +74,16 @@
 
 <!-- Internal Form-elements js-->
 <script src="http://localhost/appci4/public/assets/js/form-elements.js"></script>
+
+<script src="<?php echo  base_url('assets/plugins/datatable/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/dataTables.bootstrap4.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/dataTables.responsive.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/fileexport/dataTables.buttons.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/fileexport/buttons.bootstrap4.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/fileexport/jszip.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/fileexport/pdfmake.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/fileexport/vfs_fonts.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/fileexport/buttons.html5.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/fileexport/buttons.print.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatable/fileexport/buttons.colVis.min.js'); ?>"></script>
+<script src="<?php echo  base_url('assets/js/table-data.js'); ?>"></script>

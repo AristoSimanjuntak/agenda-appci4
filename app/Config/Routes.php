@@ -42,6 +42,11 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->post('agenda', 'Agenda::create');
     $routes->put('agenda/(:segment)', 'Agenda::edit/$1');
     $routes->delete('agenda/(:segment)', 'Agenda::delete/$1');
+
+    $routes->get('user', 'User::index');
+    $routes->post('user', 'User::create');
+    $routes->put('user/(:segment)', 'User::edit/$1');
+    $routes->delete('user/(:segment)', 'User::delete/$1');
 });
 
 

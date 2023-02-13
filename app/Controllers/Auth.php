@@ -19,15 +19,16 @@ class Auth extends BaseController
         $model = new \App\Models\PenggunaModel();
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
-        $data = $model->where('pengguna_email', $email)->first();
+        $data = $model->where('pengguna_username', $email)->first();
 
         if ($data) {
             $pass = $data->pengguna_password;
-            $verify_pass = password_verify($password, $pass);
+            $verify_pass = password_verify($password, $pass);   
             if ($verify_pass) {
                 $ses_data = [
                     'id'                    => $data->id,
                     'pengguna_username'     => $data->pengguna_username,
+                    'role'                  => $data->role,
                     'pengguna_email'        => $data->pengguna_email,
                     'logged_in'             => TRUE
                 ];

@@ -77,8 +77,8 @@
                                             <p class="mb-4 text-muted tx-13 ml-0 text-left">Badan Pengelolaan Keuangan dan Aset Daerah Kota Medan</p>
 
                                             <div class="form-group text-left">
-                                                <label>Email</label>
-                                                <input class="form-control" placeholder="Email" type="text" id="email" name="email" value="<?= set_value('email') ?>">
+                                                <label>Username</label>
+                                                <input class="form-control" placeholder="Username" type="text" id="email" name="email" value="<?= set_value('username') ?>">
                                             </div>
                                             <div class="form-group text-left">
                                                 <label>Password</label>
@@ -86,6 +86,7 @@
                                             </div>
                                             <button class="btn ripple btn-main-primary btn-block" type="submit">Masuk</button>
                                         </form>
+                                        <hr>
 
                                         <a href="/" class="btn ripple btn-main-secondary btn-block">Kembali</a>
                                         <div class="text-left mt-5 ml-0 mb-1">
