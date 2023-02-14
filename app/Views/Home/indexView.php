@@ -38,7 +38,7 @@
                                             <label class="main-content-label tx-14 font-weight-bold mb-1">Agenda Rapat Hari ini :</label>
                                         </div>
                                         <div class="card-item-body">
-                                            <div class="card-item-stat">
+                                          <div class="card-item-stat">
                                                 <h4 class="font-weight-bold"><?= $todayAgenda['count']; ?></h4>
                                             </div>
                                         </div>
@@ -103,11 +103,8 @@
                                         <div>
                                             <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">Tambah Agenda</a>
                                         </div>
-
                                         <br>
-
-                                    <?php    }
-                                    ?>
+                                    <?php  } ?>
                                     <div class="table-responsive">
                                         <table class="table" id="example1">
                                             <thead>
@@ -122,25 +119,16 @@
                                                     <th class="wd-20p">Disposisi</th>
                                                     <th class="wd-20p">Catatan</th>
                                                     <th class="wd-20p">Notulensi</th>
-
                                                     <?php
-
                                                     if ($session->has('logged_in')) { ?>
-
                                                         <th>Aksi</th>
-
-                                                    <?php    }
-
-                                                    ?>
+                                                    <?php    } ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($todayAgenda["data"] as $id => $agenda) : ?>
                                                     <tr>
                                                         <?php
-
-
-
                                                         ?>
                                                         <td> <?= ++$id ?> </td>
                                                         <td><?= $agenda->tgl[0] . " " . $agenda->tgl[1]  ?></td>
@@ -149,10 +137,9 @@
                                                         <td><?= $agenda->asal_surat ?></td>
                                                         <td><?= $agenda->no_surat ?></td>
                                                         <td><?= $agenda->no_bkad ?></td>
-                                                        <td><?= $agenda->disposisi ?></td>
+                                                        <td><?= $agenda->disposisi ?> </td>
                                                         <td><?= $agenda->catatan ?></td>
                                                         <td><?= $agenda->notulensi ?></td>
-
                                                         <?php
                                                         if ($session->has('logged_in')) { ?>
                                                             <td>
@@ -243,32 +230,24 @@
                                                                                                             <div class="col-lg-4">
                                                                                                                 <p class="mg-b-10">Disposisi</p>
                                                                                                                 <?php
-                                                                                                                $dispo = explode(", ", $agenda->disposisi);
+                                                                                                                $dispo = explode(" ", $agenda->disposisi);
                                                                                                                 ?>
                                                                                                                 <select class="form-control select2" multiple="multiple" name="disposisi[]">
 
                                                                                                                     <option <?php
-                                                                                                                            if (in_array("Sekertaris", $dispo)) { ?> selected <?php
-                                                                                                                                                                            }
-                                                                                                                                                                                ?> value="Sekertaris">
+                                                                                                                            if (in_array("Sekertaris", $dispo)) { ?> selected <?php } ?> value="Sekertaris">
                                                                                                                         Sekertaris
                                                                                                                     </option>
                                                                                                                     <option <?php
-                                                                                                                            if (in_array("Kabid Anggaran", $dispo)) { ?> selected <?php
-                                                                                                                                                                                }
-                                                                                                                                                                                    ?> value="Kabid Anggaran">
+                                                                                                                            if (in_array("Kabid Anggaran", $dispo)) { ?> selected <?php  } ?> value="Kabid Anggaran">
                                                                                                                         Kabid Anggaran
                                                                                                                     </option>
                                                                                                                     <option <?php
-                                                                                                                            if (in_array("Kabid Pembedaharaan", $dispo)) { ?> selected <?php
-                                                                                                                                                                                    }
-                                                                                                                                                                                        ?> value="Kabid Pembedaharaan">
+                                                                                                                            if (in_array("Kabid Pembedaharaan", $dispo)) { ?> selected <?php } ?> value="Kabid Pembedaharaan">
                                                                                                                         Kabid Pembedaharaan
                                                                                                                     </option>
                                                                                                                     <option <?php
-                                                                                                                            if (in_array("Kabid Aset dan Investasi", $dispo)) { ?> selected <?php
-                                                                                                                                                                                        }
-                                                                                                                                                                                            ?> value="Kabid Aset dan Investasi">
+                                                                                                                            if (in_array("Kabid Aset dan Investasi", $dispo)) { ?> selected <?php } ?> value="Kabid Aset dan Investasi">
                                                                                                                         Kabid Aset dan Investasi
                                                                                                                     </option>
                                                                                                                     <option <?php
