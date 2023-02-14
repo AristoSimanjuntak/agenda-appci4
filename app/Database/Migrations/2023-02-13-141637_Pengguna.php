@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Agenda extends Migration
+class Pengguna extends Migration
 {
     public function up()
     {
@@ -15,49 +15,42 @@ class Agenda extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'nama_agenda' => [
+            'pengguna_nama' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'asal_surat' => [
+            'pengguna_username' => [
+                'type'       => 'TEXT',
+                'null' => true,
+            ],
+            'pengguna_password' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
-            ], 'no_surat' => [
-                'type'       => 'INT',
-                'constraint' => '11',
             ],
-            'no_bkad' => [
-                'type'       => 'INT',
-                'constraint' => '11',
+            'pengguna_email' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
             ],
-            'tgl' => [
+            'role' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'created_by' => [
                 'type'       => 'DATETIME',
                 'null' => true,
             ],
-            'tempat' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100',
-            ],
-            'disposisi' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100',
-            ],
-            'catatan' => [
-                'type' => 'TEXT',
-                'null' => true,
-            ],
-            'notulensi' => [
-                'type' => 'TEXT',
+            'updated_by' => [
+                'type'       => 'DATETIME',
                 'null' => true,
             ],
 
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('agenda');
+        $this->forge->createTable('pengguna');
     }
 
     public function down()
     {
-        $this->forge->dropTable('agenda');
+        $this->forge->dropTable('pengguna');
     }
 }
