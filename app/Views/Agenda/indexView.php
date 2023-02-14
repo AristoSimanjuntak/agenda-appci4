@@ -1,8 +1,6 @@
 <?= $this->extend('Layouts/template') ?>
 <?= $this->section('content') ?>
 
-
-
 <div class="main-content pt-0">
 
     <div class="container-fluid">
@@ -38,11 +36,8 @@
                                         <div>
                                             <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">Tambah Agenda</a>
                                         </div>
-
                                         <br>
-
-                                    <?php    }
-                                    ?>
+                                    <?php  } ?>
                                     <div class="table-responsive">
                                         <table class="table" id="example1">
                                             <thead>
@@ -54,29 +49,20 @@
                                                     <th class="wd-20p">asal Surat</th>
                                                     <th class="wd-20p">No Surat</th>
                                                     <th class="wd-20p">No Surat BPKAD</th>
-
                                                     <th class="wd-20p">Disposisi</th>
                                                     <th class="wd-20p">Catatan</th>
                                                     <th class="wd-20p">Notulensi</th>
-
                                                     <?php
-
                                                     if ($session->has('logged_in')) { ?>
-
                                                         <th>Aksi</th>
-
-                                                    <?php    }
-
-                                                    ?>
+                                                    <?php } ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($home as $id => $agenda) : ?>
                                                     <tr>
                                                         <?php
-
                                                         // $dt = explode(" ", $agenda['tgl']);
-
                                                         ?>
                                                         <td> <?= ++$id ?> </td>
                                                         <td><?= $agenda['tgl'] ?></td>
@@ -85,9 +71,40 @@
                                                         <td><?= $agenda['asal_surat'] ?></td>
                                                         <td><?= $agenda['no_surat'] ?></td>
                                                         <td><?= $agenda['no_bkad'] ?></td>
-                                                        <td><?= $agenda['disposisi'] ?></td>
-                                                        <td><?= $agenda['catatan'] ?></td>
-                                                        <td><?= $agenda['notulensi'] ?></td>
+                                                        <td>
+                                                            <?php
+                                                            $dispo = explode(", ", $agenda['disposisi']);
+                                                            ?>
+                                                            <select class="form-control select2" multiple="multiple" name="disposisi[]" disabled>
+
+                                                                <option <?php
+                                                                        if (in_array("Sekertaris", $dispo)) { ?> selected <?php } ?> value="Sekertaris">
+                                                                    Sekertaris
+                                                                </option>
+                                                                <option <?php
+                                                                        if (in_array("Kabid Anggaran", $dispo)) { ?> selected <?php  } ?> value="Kabid Anggaran">
+                                                                    Kabid Anggaran
+                                                                </option>
+                                                                <option <?php
+                                                                        if (in_array("Kabid Pembedaharaan", $dispo)) { ?> selected <?php } ?> value="Kabid Pembedaharaan">
+                                                                    Kabid Pembedaharaan
+                                                                </option>
+                                                                <option <?php
+                                                                        if (in_array("Kabid Aset dan Investasi", $dispo)) { ?> selected <?php } ?> value="Kabid Aset dan Investasi">
+                                                                    Kabid Aset dan Investasi
+                                                                </option>
+                                                                <option <?php
+                                                                        if (in_array("Kabid Akuntansi", $dispo)) { ?> selected <?php } ?> value="Kabid Akuntansi">
+                                                                    Kabid Akuntansi
+                                                                </option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <p><?= $agenda['catatan'] ?></p>
+                                                        </td>
+                                                        <td>
+                                                            <p><?= $agenda['notulensi'] ?></p>
+                                                        </td>
 
                                                         <?php
                                                         if ($session->has('logged_in')) { ?>
@@ -101,8 +118,7 @@
                                                                     </form>
                                                                 </div>
                                                             </td>
-                                                        <?php    }
-                                                        ?>
+                                                        <?php } ?>
                                                     </tr>
 
                                                     <div class="modal" id="editModal<?= $agenda['id'] ?>">
@@ -168,13 +184,6 @@
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>
-                                                                                                        <!-- <div class="form-group">
-                                                                                    <label class="">Waktu</label>
-                                                                                    <div class="pos-relative">
-                                                                                        <input class="form-control pd-r-80" required="" placeholder="" type="time" id="waktu" name="waktu" value="">
-                                                                                    </div>
-                                                                                </div> -->
-
                                                                                                     </div>
 
                                                                                                     <div class="row row-sm">
@@ -186,27 +195,19 @@
                                                                                                             <select class="form-control select2" multiple="multiple" name="disposisi[]">
 
                                                                                                                 <option <?php
-                                                                                                                        if (in_array("Sekertaris", $dispo)) { ?> selected <?php
-                                                                                                                                                                            }
-                                                                                                                                                                                ?> value="Sekertaris">
+                                                                                                                        if (in_array("Sekertaris", $dispo)) { ?> selected <?php  } ?> value="Sekertaris">
                                                                                                                     Sekertaris
                                                                                                                 </option>
                                                                                                                 <option <?php
-                                                                                                                        if (in_array("Kabid Anggaran", $dispo)) { ?> selected <?php
-                                                                                                                                                                                }
-                                                                                                                                                                                    ?> value="Kabid Anggaran">
+                                                                                                                        if (in_array("Kabid Anggaran", $dispo)) { ?> selected <?php  } ?> value="Kabid Anggaran">
                                                                                                                     Kabid Anggaran
                                                                                                                 </option>
                                                                                                                 <option <?php
-                                                                                                                        if (in_array("Kabid Pembedaharaan", $dispo)) { ?> selected <?php
-                                                                                                                                                                                    }
-                                                                                                                                                                                        ?> value="Kabid Pembedaharaan">
+                                                                                                                        if (in_array("Kabid Pembedaharaan", $dispo)) { ?> selected <?php  } ?> value="Kabid Pembedaharaan">
                                                                                                                     Kabid Pembedaharaan
                                                                                                                 </option>
                                                                                                                 <option <?php
-                                                                                                                        if (in_array("Kabid Aset dan Investasi", $dispo)) { ?> selected <?php
-                                                                                                                                                                                        }
-                                                                                                                                                                                            ?> value="Kabid Aset dan Investasi">
+                                                                                                                        if (in_array("Kabid Aset dan Investasi", $dispo)) { ?> selected <?php  }  ?> value="Kabid Aset dan Investasi">
                                                                                                                     Kabid Aset dan Investasi
                                                                                                                 </option>
                                                                                                                 <option <?php
@@ -249,7 +250,6 @@
                                                         </div>
                                                     </div>
                                                 <?php endforeach; ?>
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -271,7 +271,6 @@
                                                     <div class="card-body">
                                                         <form action="/admin/agenda" method="post">
                                                             <input type="hidden" name="_method" value="POST" />
-
                                                             <?= csrf_field(); ?>
                                                             <div class="row row-sm">
                                                                 <div class="col-md-12 col-lg-12 col-xl-12">
@@ -383,11 +382,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Row end -->
                 </div>
-                <!-- col end -->
-
-                <!-- Row end -->
             </div>
         </div>
     </div>

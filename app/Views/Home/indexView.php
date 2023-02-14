@@ -38,7 +38,7 @@
                                             <label class="main-content-label tx-14 font-weight-bold mb-1">Agenda Rapat Hari ini :</label>
                                         </div>
                                         <div class="card-item-body">
-                                          <div class="card-item-stat">
+                                            <div class="card-item-stat">
                                                 <h4 class="font-weight-bold"><?= $todayAgenda['count']; ?></h4>
                                             </div>
                                         </div>
@@ -137,7 +137,34 @@
                                                         <td><?= $agenda->asal_surat ?></td>
                                                         <td><?= $agenda->no_surat ?></td>
                                                         <td><?= $agenda->no_bkad ?></td>
-                                                        <td><?= $agenda->disposisi ?> </td>
+                                                        <td>
+                                                            <?php
+                                                            $dispo = explode(", ", $agenda->disposisi);
+                                                            ?>
+                                                            <select class="form-control select2" multiple="multiple" name="disposisi[]" disabled>
+
+                                                                <option <?php
+                                                                        if (in_array("Sekertaris", $dispo)) { ?> selected <?php } ?> value="Sekertaris">
+                                                                    Sekertaris
+                                                                </option>
+                                                                <option <?php
+                                                                        if (in_array("Kabid Anggaran", $dispo)) { ?> selected <?php  } ?> value="Kabid Anggaran">
+                                                                    Kabid Anggaran
+                                                                </option>
+                                                                <option <?php
+                                                                        if (in_array("Kabid Pembedaharaan", $dispo)) { ?> selected <?php } ?> value="Kabid Pembedaharaan">
+                                                                    Kabid Pembedaharaan
+                                                                </option>
+                                                                <option <?php
+                                                                        if (in_array("Kabid Aset dan Investasi", $dispo)) { ?> selected <?php } ?> value="Kabid Aset dan Investasi">
+                                                                    Kabid Aset dan Investasi
+                                                                </option>
+                                                                <option <?php
+                                                                        if (in_array("Kabid Akuntansi", $dispo)) { ?> selected <?php } ?> value="Kabid Akuntansi">
+                                                                    Kabid Akuntansi
+                                                                </option>
+                                                            </select>
+                                                        </td>
                                                         <td><?= $agenda->catatan ?></td>
                                                         <td><?= $agenda->notulensi ?></td>
                                                         <?php
@@ -230,7 +257,7 @@
                                                                                                             <div class="col-lg-4">
                                                                                                                 <p class="mg-b-10">Disposisi</p>
                                                                                                                 <?php
-                                                                                                                $dispo = explode(" ", $agenda->disposisi);
+                                                                                                                $dispo = explode(", ", $agenda->disposisi);
                                                                                                                 ?>
                                                                                                                 <select class="form-control select2" multiple="multiple" name="disposisi[]">
 
